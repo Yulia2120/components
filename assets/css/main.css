@@ -1,0 +1,122 @@
+@import '../fonts/fonts.css';
+@import './normalize.css';
+@import '../../components/header/header.css';
+@import '../../components/footer/footer.css';
+@import '../../components/template/template.css';
+@import '../../components/card/card.css';
+@import '../../02-accordion/accordion.css';
+@import '../../pages/histogram/histogram.css';
+@import '../../pages/tooltip/tooltip.css';
+@import '../../pages/calendar/calendar.css';
+@import '../../pages/modal/modal.css';
+@import '../../01-button/button.css';
+@import '../../pages/avatar/avatar.css';
+@import '../../04-skeleton/skeleton.css';
+@import './tabs.css';
+@import './dropdown.css';
+@import '../../pages/formgroup/formgroup.css';
+
+
+
+:root{
+    --white: #fff;
+    --white-tg:#fff;
+    --black: #212429;
+    --black-tx: #212429;
+    --pink: #f784ad;
+    --purple: #7048e8;
+    --blue: #374fc7;
+    --blue-1: #334d6e;
+    --grey-blue: #90a0b7;
+    --primary-h: 228;
+    --primary-s: 81%;
+    --primary-l: 59%;
+    --primary-lighten: hsl(var(--primary-h), var(--primary-s), calc(var(--primary-l) + 10%));
+    --red: #f03d3e;
+    --grey-1: #f8f9fa;
+    --grey-2: #dde2e5;
+    --grey-3: #acb5bd;
+    --grey-4: #495057;
+    --grey-5: #C4C4C4;
+    --card-bg: #F9FAFC;
+
+
+
+    --error: var(--red);
+    --success: var(--blue);
+
+    --primary: var(--blue);
+    --secondary: var(--purple);
+}
+
+:root[data-mode="dark"]{
+    --white: #212429;
+    --white-tg: #fff;
+    --black: #fff;
+    --black-tx: #98a0a7;
+    --grey-1: #6d6d6d;
+    --grey-2: #b4b7be;
+    --grey-3: #98a0a7;
+    --grey-4: #a9b6c4;
+    --grey-5: #494949;
+    --card-bg: #4A5057;
+    --grey-title: #818385;
+}
+
+*{
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+}
+
+html, body {
+    height: 100%;
+    min-width: 320px;
+    transition: background-color 1s ease-in-out, color 1s ease-in-out;
+    color: var(--black-tx);
+}
+main{
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.container{
+    max-width: 1110px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+@media all and (min-width: 1200px) {
+    .container {
+        padding: 0;
+    }
+}
+
+a{
+    text-decoration: none;
+    color: inherit;
+}
+ul{
+    list-style: none;
+}
+.flex-grow{
+    flex-grow: 1;
+    background-color: var(--white);
+}
+.svg-sprite{
+    width: 24px;
+    height: 24px;
+}
+
+.bg-grey{
+    background: var(--card-bg);
+}
+.bg-white{
+    background: var(--white);
+}
+.box-shadow{
+    box-shadow: 0 2px 4px rgba(33, 36, 41, 0.05);
+}

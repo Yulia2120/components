@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="./template.css">
+    <title>Modal</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="sun" viewBox="0 0 24 24">
+            <g fill-rule="evenodd" clip-path="url(#a)" clip-rule="evenodd"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-6 4a6 6 0 1 1 12 0 6 6 0 0 1-12 0ZM12 0a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V1a1 1 0 0 1 1-1ZM12 20a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1ZM3.513 3.513a1 1 0 0 1 1.414 0l1.42 1.42a1 1 0 0 1-1.414 1.414l-1.42-1.42a1 1 0 0 1 0-1.414ZM17.653 17.653a1 1 0 0 1 1.414 0l1.42 1.42a1 1 0 0 1-1.414 1.414l-1.42-1.42a1 1 0 0 1 0-1.414ZM0 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1ZM20 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1ZM6.347 17.653a1 1 0 0 1 0 1.414l-1.42 1.42a1 1 0 0 1-1.414-1.414l1.42-1.42a1 1 0 0 1 1.414 0ZM20.487 3.513a1 1 0 0 1 0 1.414l-1.42 1.42a1 1 0 1 1-1.414-1.414l1.42-1.42a1 1 0 0 1 1.414 0Z"/></g>
+        </symbol>
+        <symbol id="moon" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M12.081 2.509a1 1 0 0 1-.067 1.085 6 6 0 0 0 8.392 8.392l.594.804.996.092A10 10 0 1 1 11.118 2.004a1 1 0 0 1 .963.505Zm7.48 12.175A7.999 7.999 0 0 1 9.316 4.439a8 8 0 1 0 10.245 10.245Z" clip-rule="evenodd"/>
+        </symbol>
+        <symbol id="close" viewBox="0 0 24 24">
+            <g fill-rule="evenodd" clip-rule="evenodd"><path d="M18.707 5.293a1 1 0 0 1 0 1.414l-12 12a1 1 0 0 1-1.414-1.414l12-12a1 1 0 0 1 1.414 0Z"/><path d="M5.293 5.293a1 1 0 0 1 1.414 0l12 12a1 1 0 0 1-1.414 1.414l-12-12a1 1 0 0 1 0-1.414Z"/></g>
+        </symbol>
+    </svg>
+    <main class="flex-grow bg-grey">
+        <header class="header bg-grey">
+            <div class="container">
+                <div class="header__inner">
+                    <a href="../../index.html" class="header__logo">
+                    <svg width="30" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <rect width="30" height="32" fill="#212429"/>
+                     </svg>
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="16" fill="#212429"/>
+                        </svg>
+                        <svg width="32" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0L32 32H0V0Z" fill="#212429"/>
+                        </svg>
+                    </a>
+                    <div class="header__theme toggle-mode-input">
+                        <svg class="svg-sprite" style="fill: var(--grey-3);">
+                            <use xlink:href="#sun"></use>
+                        </svg>
+                        <label class="toggler">
+                            <input type="checkbox" class="toggler__input" name="toggler" value="1">
+                            <div class="toggler__state">
+                                <div class="toggler__control">
+                                  <div class="toggler__checked"></div>
+                                </div>
+                            </div>
+                        </label>
+                        <svg class="svg-sprite" style="fill: var(--grey-3);">
+                            <use xlink:href="#moon"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            </header>
+        <div class="container">
+            <div class="inner__page">
+                    <aside class="sidebar">
+                        <h4 class="sidebar__title">Components</h4>
+                        <nav class="sidebar__menu">
+                            <a href="modal.html" class="active">Modal</a>
+                            <a href="../tooltip/tooltip.html" >Tooltip</a>
+                            <a href="../avatar/avatar.html">Avatar</a>
+                            <a href="../calendar/calendar.html">Calendar</a>
+                            <a href="../histogram/histogram.html">Histogram</a>
+                            <a href="../formgroup/formgroup.html">Custom form elements</a>
+                        </nav>
+                    </aside>
+                    <div class="inner__page-content bg-white box-shadow">
+                        <div class="container">
+                            <h3 class="page__title">Modal</h3>
+                            <div class="inner__page-modal">
+                                <button class="button -primary" id="modal-open">Open Modal</button>
+                            </div>
+                                <div id="modal" class="modal">
+                                    <div class="modal__window">
+                                        <a href="#" id="modal-close" class="modal__close">
+                                            <svg class="svg-sprite" style="fill: var(--grey-3);">
+                                                <use xlink:href="#close"></use>
+                                            </svg>
+                                        </a>
+                                        <div class="modal__body">
+                                            <p>Modal based window.</p>
+                                            <label class="modal__label" for="name">Name</label>
+                                            <input class="modal__input" type="text" placeholder="Placeholder">
+                                            <label class="modal__label" for="email">Email</label>
+                                            <input class="modal__input" type="email" placeholder="Placeholder">
+                                            <button type="submit" class="button -primary">
+                                                Submit
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                        <div class="tabs">
+                            <input type="radio" name="tabs" id="tab1" checked>
+                            <input type="radio" name="tabs" id="tab2">
+                            <nav class="tabs__nav">
+                                <ul class="tabs__menu">
+                                    <li>
+                                        <label for="tab1">HTML</label>
+                                    </li>
+                                    <li>
+                                        <label for="tab2">CSS</label>
+                                    </li>
+                                </ul>
+                            </nav>
+                                <section>
+                                    <div class="tabs__content tabs__content-1">
+                                            <pre>
+                                                <code class="code-tab1">
+                                                    <br/>&lt;button class="button -primary" id="modal-open"&gt;Open Modal&lt;/button&gt;<br/>  &lt;div id="modal" class="modal"&gt;<br/>    &lt;div class="modal__window"&gt;<br/>      &lt;a href="#" id="modal-close" class="modal__close"&gt;<br/>        &lt;svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;<br/>             &lt;path fill-rule="evenodd" clip-rule="evenodd" d="M18.7071 5.29289C19.0976 5.68342 19.0976 6.31658 18.7071 6.70711L6.70711 18.7071C6.31658 19.0976 5.68342 19.0976 5.29289 18.7071C4.90237 18.3166 4.90237 17.6834 5.29289 17.2929L17.2929 5.29289C17.6834 4.90237 18.3166 4.90237 18.7071 5.29289Z" fill="#212429"/&gt;<br/>             &lt;path fill-rule="evenodd" clip-rule="evenodd" d="M5.29289 5.29289C5.68342 4.90237 6.31658 4.90237 6.70711 5.29289L18.7071 17.2929C19.0976 17.6834 19.0976 18.3166 18.7071 18.7071C18.3166 19.0976 17.6834 19.0976 17.2929 18.7071L5.29289 6.70711C4.90237 6.31658 4.90237 5.68342 5.29289 5.29289Z" fill="#212429"/&gt;<br/>         &lt;/svg&gt;<br/>        &lt;/a&gt;<br/>   &lt;div class="modal__body"&gt;<br/>     &lt;p&gt;Modal based window.&lt;/p&gt;<br/>        &lt;label class="modal__label" for="name"&gt;Name&lt;/label&gt;<br/>          &lt;input class="modal__input" type="text" placeholder="Placeholder"&gt;<br/>        &lt;label class="modal__label" for="email"&gt;Email&lt;/label&gt;<br/>          &lt;input class="modal__input" type="email" placeholder="Placeholder"&gt;<br/>         &lt;button type="submit" class="button -primary"&gt;Submit&lt;/button&gt;<br/>    &lt;/div&gt;<br/>   &lt;/div&gt;<br/>  &lt;/div&gt;<br/><br/> 
+                                                </code>
+                                            </pre>
+                                    </div>
+                                    <div class="tabs__content tabs__content-2">
+                                        <pre>
+                                           <code>
+                                            <br/>.modal{<br/>    position: fixed;<br/>    background-color: rgba(196, 196, 196, 0.8);<br/>    backdrop-filter: blur(10px);<br/>    top: 0;<br/>    right: 0;<br/>    bottom: 0;<br/>    left: 0;<br/>    z-index: 999;<br/>    display: none;<br/>    transition: all 0.3s;<br/>}<br/><br/>.modal__window{<br/>    max-width: 428px;<br/>    width: 100%;<br/>    position: absolute;<br/>    top: 50%;<br/>    left: 50%;<br/>    transform: translate(-50%, -50%);<br/>    padding: 2rem 2.5rem;<br/>    background: var(--white);<br/>    border-radius: 8px;<br/>}<br/>.modal__body{<br/>    display: flex;<br/>    flex-direction: column;<br/>}<br/>.modal__label{<br/>    margin-bottom: 5px;<br/>    color: var(--grey-3);<br/>    font-family: Inter, sans-serif;<br/>    font-size: 12px;<br/>    font-style: normal;<br/>    font-weight: 500;<br/>    line-height: 18px; /* 150% */<br/>    letter-spacing: 0.48px;<br/>    text-transform: uppercase;<br/>}<br/>.modal__input{<br/>    padding: 0.875rem 3.25rem 0.875rem 1.5rem;<br/>    border: 1px solid var(--grey-2);<br/>    border-radius: 8px;<br/>    margin-bottom: 16px;<br/>    outline: none;<br/>}<br/>.modal__input:focus{<br/>    border: 1px solid var(--blue);<br/>}<br/>::placeholder{<br/>    color: var(--grey-2);<br/>    font-family: Inter, sans-serif;<br/>    font-style: normal;<br/>    font-weight: 400;<br/>    font-size: 16px;<br/>    line-height: 26px; /* 130% */<br/>}<br/>.button{<br/>    margin-top: 8px;<br/>}<br/>.modal__close {<br/>    position: absolute;<br/>    top: 12px;<br/>    right: 12px;<br/>    cursor: pointer;<br/>}<br/>.modal__window_preview{<br/>    max-width: 85%;<br/>    padding:16px 24px;<br/>    position: relative;<br/>    border: 1px solid var(--grey-3);<br/>    border-radius: 8px;<br/>}<br/>p{<br/>    margin-bottom: 1rem;<br/>    line-height: 24px;<br/>}<br/>.modal__btn{<br/>    max-width: 90%;<br/>}<br/><br/> 
+                                           </code>
+                                        </pre>
+                                    </div>
+                            </section>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+            <footer class="bg-grey footer__page">
+                <div class="container">
+                    <p class="footer__page-text">Reusable component library</p>
+                </div>
+               </footer>   
+</main>
+<script src="index.js"></script> 
+<script src="../../main.js"></script>
+</body>
+</html>

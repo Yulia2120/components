@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="./radio.css">
+    <link rel="stylesheet" href="../checkbox/checkbox.css">
+    <title>Radio button</title>
+</head>
+<body>
+    <form>
+        <fieldset class="fieldset">
+            <legend class="fieldset__legend">Radio button</legend>
+            <label class="radio">
+                <input type="radio" class="radio__input" name="radioGroup" value="1">
+                <div class="radio__state">
+                    <div class="radio__control">
+                      <div class="radio__checked"></div>
+                    </div>
+                    <div class="radio__title">Default</div>
+                </div>
+            </label>
+            <label class="radio">
+                <input type="radio" class="radio__input" name="radioGroup" value="2" checked>
+                <div class="radio__state">
+                    <div class="radio__control">
+                      <div class="radio__checked"></div>
+                    </div>
+                    <div class="radio__title">Selected</div>
+                </div>
+            </label>
+            <label class="radio">
+                <input type="radio" class="radio__input" name="radioGroup" value="3" disabled>
+                <div class="radio__state">
+                    <div class="radio__control radio__control-disabled">
+                    </div>
+                    <div class="radio__title">Disabled</div>
+                </div>
+            </label>
+        </fieldset>
+    </form>
+</body>
+</html>

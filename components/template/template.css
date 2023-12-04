@@ -1,0 +1,38 @@
+.inner__page{
+    margin-top: 2rem;
+}
+@media all and (min-width: 768px) {
+    .inner__page {
+        display: grid;
+        grid-template-columns: 285px 1fr;
+    }
+}
+
+.sidebar, .sidebar__menu{
+    display: flex;
+    flex-direction: column;
+} 
+.sidebar__menu a {
+    margin-bottom: 0.75rem;
+}
+.sidebar__menu a.active{
+    color: var(--red);
+}
+.sidebar__title{
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 1.30;
+}
+.inner__page-content {
+    padding: 2rem 3rem;
+    overflow: hidden;
+    border-radius: 0.5rem;
+  
+}
+.page__title{
+    margin-bottom: 1rem;
+    font-weight: 400;
+    font-size: 28px;
+    line-height: 1.36;
+}

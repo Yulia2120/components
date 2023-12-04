@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="./checkbox.css">
+    <title>Checkbox</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="check" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-5-5a1 1 0 1 1 1.414-1.414L9 15.586 19.293 5.293a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/>
+        </symbol>
+    </svg>
+ <form>
+    <fieldset class="fieldset">
+        <legend class="fieldset__legend">Checkbox</legend>
+        <label class="checkbox">
+            <input type="checkbox" class="checkbox__input">
+            <div class="checkbox__state">
+                <div class="checkbox__control">
+                    <svg class="svg-sprite" stroke="#fff" stroke-width="2">
+                        <use xlink:href="#check"></use>
+                    </svg>
+                </div>
+                <div class="checkbox__title">Default</div>
+            </div>
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" class="checkbox__input" checked>
+            <div class="checkbox__state">
+                <div class="checkbox__control">
+                    <svg class="svg-sprite" stroke="#fff" stroke-width="2">
+                        <use xlink:href="#check"></use>
+                    </svg>
+                </div>
+                <div class="checkbox__title">Checked</div>
+            </div>
+        </label>
+        <label class="checkbox">
+            <input type="checkbox" class="checkbox__input" disabled>
+            <div class="checkbox__state">
+                <div class="checkbox__control checkbox__control-disabled">
+                </div>
+                <div class="checkbox__title">Disabled</div>
+            </div>
+        </label>
+    </fieldset>
+</form>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="./toggler.css">
+    <link rel="stylesheet" href="../checkbox/checkbox.css">
+    <title>Toggler</title>
+</head>
+<body>
+    <form>
+        <fieldset class="fieldset">
+            <legend class="fieldset__legend">Toggler</legend>
+            <label class="toggler">
+                <input type="checkbox" class="toggler__input" name="toggler" value="1">
+                <div class="toggler__state">
+                    <div class="toggler__control">
+                      <div class="toggler__checked"></div>
+                    </div>
+                    <div class="toggler__title">Default</div>
+                </div>
+            </label>
+            <label class="toggler">
+                <input type="checkbox" class="toggler__input" name="toggler"  value="2" checked>
+                <div class="toggler__state">
+                    <div class="toggler__control">
+                      <div class="toggler__checked"></div>
+                    </div>
+                    <div class="toggler__title">Checked</div>
+                </div>
+            </label>
+            <label class="toggler">
+                <input type="checkbox" class="toggler__input" name="toggler" value="3" disabled>
+                <div class="toggler__state">
+                    <div class="toggler__control toggler__control-disabled">
+                    </div>
+                    <div class="toggler__title">Disabled</div>
+                </div>
+            </label>
+        </fieldset>
+    </form>
+</body>
+</html>

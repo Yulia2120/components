@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="./tooltip.css">
+    <title>Tooltip</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="help" viewBox="0 0 24 24">
+            <g fill-rule="evenodd" clip-rule="evenodd"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12Z"/><path d="M12.258 8.024a2 2 0 0 0-2.224 1.308 1 1 0 0 1-1.887-.664 4 4 0 0 1 7.773 1.333c0 1.53-1.135 2.54-1.945 3.081a8.045 8.045 0 0 1-1.686.848l-.035.013-.011.003-.004.002h-.001s-.002 0-.318-.948l.316.949a1 1 0 0 1-.633-1.897h-.001l.017-.006a5.763 5.763 0 0 0 .364-.147c.247-.11.568-.272.882-.481.69-.46 1.055-.949 1.055-1.418v-.002a2 2 0 0 0-1.662-1.974ZM12 15a1 1 0 0 1 1 1v.5a1 1 0 1 1-2 0V16a1 1 0 0 1 1-1Z"/></g>
+        </symbol>
+    </svg>
+    <div class="tooltip">
+        <div class="tooltip__icon">
+            <svg class="svg-sprite">
+                <use xlink:href="#help"></use>
+            </svg>
+        </div>
+             <div class="tooltip__bubble">Helper Text</div>
+    </div>
+</body>
+</html>

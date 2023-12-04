@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en" data-mode="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="./calendar.css">
+    <title>Calendar</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="sun" viewBox="0 0 24 24">
+            <g fill-rule="evenodd" clip-path="url(#a)" clip-rule="evenodd"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-6 4a6 6 0 1 1 12 0 6 6 0 0 1-12 0ZM12 0a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V1a1 1 0 0 1 1-1ZM12 20a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1ZM3.513 3.513a1 1 0 0 1 1.414 0l1.42 1.42a1 1 0 0 1-1.414 1.414l-1.42-1.42a1 1 0 0 1 0-1.414ZM17.653 17.653a1 1 0 0 1 1.414 0l1.42 1.42a1 1 0 0 1-1.414 1.414l-1.42-1.42a1 1 0 0 1 0-1.414ZM0 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1ZM20 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1ZM6.347 17.653a1 1 0 0 1 0 1.414l-1.42 1.42a1 1 0 0 1-1.414-1.414l1.42-1.42a1 1 0 0 1 1.414 0ZM20.487 3.513a1 1 0 0 1 0 1.414l-1.42 1.42a1 1 0 1 1-1.414-1.414l1.42-1.42a1 1 0 0 1 1.414 0Z"/></g>
+        </symbol>
+        <symbol id="moon" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M12.081 2.509a1 1 0 0 1-.067 1.085 6 6 0 0 0 8.392 8.392l.594.804.996.092A10 10 0 1 1 11.118 2.004a1 1 0 0 1 .963.505Zm7.48 12.175A7.999 7.999 0 0 1 9.316 4.439a8 8 0 1 0 10.245 10.245Z" clip-rule="evenodd"/>
+        </symbol>
+    </svg>
+    <main class="flex-grow bg-grey">
+        <header class="header bg-grey">
+            <div class="container">
+                <div class="header__inner">
+                    <a href="../../index.html" class="header__logo">
+                    <svg width="30" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <rect width="30" height="32" fill="#212429"/>
+                     </svg>
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="16" fill="#212429"/>
+                        </svg>
+                        <svg width="32" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0L32 32H0V0Z" fill="#212429"/>
+                        </svg>
+                    </a>
+                    <div class="header__theme toggle-mode-input">
+                        <svg class="svg-sprite" style="fill: var(--grey-3);">
+                            <use xlink:href="#sun"></use>
+                        </svg>
+                        <label class="toggler">
+                            <input type="checkbox" class="toggler__input" name="toggler" value="1">
+                            <div class="toggler__state">
+                                <div class="toggler__control">
+                                  <div class="toggler__checked"></div>
+                                </div>
+                            </div>
+                        </label>
+                        <svg class="svg-sprite" style="fill: var(--grey-3);">
+                            <use xlink:href="#moon"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            </header>
+        <div class="container">
+            <div class="inner__page">
+                    <aside class="sidebar">
+                        <h4 class="sidebar__title">Components</h4>
+                        <nav class="sidebar__menu">
+                            <a href="../modal/modal.html">Modal</a>
+                            <a href="../tooltip/tooltip.html" >Tooltip</a>
+                            <a href="../avatar/avatar.html">Avatar</a>
+                            <a href="calendar.html" class="active">Calendar</a>
+                            <a href="../histogram/histogram.html">Histogram</a>
+                            <a href="../formgroup/formgroup.html">Custom form elements</a>
+                        </nav>
+                    </aside>
+                    <div class="inner__page-content bg-white box-shadow">
+                        <div class="container">
+                            <h3 class="page__title">Calendar</h3>
+                         <div class="inner__page-calendar">
+                            <div class="calendar calendar_wrapper_mini">
+                                <div class="calendar__title calendar_title_mini">November 2023</div>
+                                <div class="calendar__wrapper">
+                                    <div class="calendar__inner">
+                                        <span class="calendar__item calendar__item_day calendar_size_mini">Mon</span>
+                                        <span class="calendar__item calendar__item_day calendar_size_mini">Tue</span>
+                                        <span class="calendar__item calendar__item_day calendar_size_mini">Wed</span>
+                                        <span class="calendar__item calendar__item_day calendar_size_mini">Thu</span>
+                                        <span class="calendar__item calendar__item_day calendar_size_mini">Fri</span>
+                                        <span class="calendar__item calendar__item_day calendar_size_mini">Sat</span>
+                                        <span class="calendar__item calendar__item_day calendar_size_mini">Sun</span>
+                                        <span class="calendar__item calendar_size_mini"></span>
+                                        <span class="calendar__item calendar_size_mini"></span>
+                                        <span class="calendar__item calendar_size_mini">1</span>
+                                        <span class="calendar__item calendar_size_mini">2</span>
+                                        <span class="calendar__item calendar_size_mini">3</span>
+                                        <span class="calendar__item calendar_size_mini">4</span>
+                                        <span class="calendar__item calendar_size_mini">5</span>
+                                        <span class="calendar__item calendar_size_mini">6</span>
+                                        <span class="calendar__item calendar_size_mini">7</span>
+                                        <span class="calendar__item calendar_size_mini">8</span>
+                                        <span class="calendar__item calendar_size_mini">9</span>
+                                        <span class="calendar__item calendar_size_mini">10</span>
+                                        <span class="calendar__item calendar_size_mini">11</span>
+                                        <span class="calendar__item calendar_size_mini">12</span>
+                                        <span class="calendar__item calendar__item_active calendar_size_mini">13</span>
+                                        <span class="calendar__item calendar__item_between-active calendar_size_mini">14</span>
+                                        <span class="calendar__item calendar__item_between-active calendar_size_mini">15</span>
+                                        <span class="calendar__item calendar__item_between-active calendar_size_mini">16</span>
+                                        <span class="calendar__item calendar__item_between-active calendar_size_mini">17</span>
+                                        <span class="calendar__item  calendar_size_mini">18</span>
+                                        <span class="calendar__item calendar_size_mini">19</span>
+                                        <span class="calendar__item calendar_size_mini">20</span>
+                                        <span class="calendar__item calendar_size_mini">21</span>
+                                        <span class="calendar__item calendar_size_mini">22</span>
+                                        <span class="calendar__item calendar_size_mini">23</span>
+                                        <span class="calendar__item calendar_size_mini">24</span>
+                                        <span class="calendar__item calendar_size_mini">25</span>
+                                        <span class="calendar__item calendar_size_mini">26</span>
+                                        <span class="calendar__item calendar_size_mini">27</span>
+                                        <span class="calendar__item calendar_size_mini">28</span>
+                                        <span class="calendar__item calendar_size_mini">29</span>
+                                        <span class="calendar__item calendar_size_mini">30</span>
+                                    </div>
+                                </div>
+                            </div>
+                         </div>
+                        </div>
+                        <div class="tabs">
+                            <input type="radio" name="tabs" id="tab1" checked>
+                            <input type="radio" name="tabs" id="tab2">
+                            <nav class="tabs__nav">
+                                <ul class="tabs__menu">
+                                    <li>
+                                        <label for="tab1">HTML</label>
+                                    </li>
+                                    <li>
+                                        <label for="tab2">CSS</label>
+                                    </li>
+                                </ul>
+                            </nav>
+                                <section>
+                                    <div class="tabs__content tabs__content-1">
+                                            <pre>
+                                                <code>
+                                                    <br/>&lt;div class="calendar"&gt;<br/>     &lt;div class="calendar__title"&gt;November 2023&lt;/div&gt;<br/>       &lt;div class="calendar__wrapper"&gt;<br/>         &lt;div class="calendar__inner"&gt;<br/>           &lt;span class="calendar__item calendar__item_day"&gt;Mon&lt;/span&gt;<br/>           &lt;span class="calendar__item calendar__item_day"&gt;Tue&lt;/span&gt;<br/>           &lt;span class="calendar__item calendar__item_day"&gt;Wed&lt;/span&gt;<br/>           &lt;span class="calendar__item calendar__item_day"&gt;Thu&lt;/span&gt;<br/>           &lt;span class="calendar__item calendar__item_day"&gt;Fri&lt;/span&gt;<br/>           &lt;span class="calendar__item calendar__item_day"&gt;Sat&lt;/span&gt;<br/>           &lt;span class="calendar__item calendar__item_day"&gt;Sun&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;1&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;2&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;3&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;4&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;5&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;6&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;7&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;8&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;9&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;10&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;11&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;12&lt;/span&gt;<br/>           &lt;span class="calendar__item calendar__item_active"&gt;13&lt;/span&gt;<br/>           &lt;span class="calendar__item calendar__item_between-active"&gt;14&lt;/span&gt;<br/>           &lt;span class="calendar__item calendar__item_between-active"&gt;15&lt;/span&gt;<br/>           &lt;span class="calendar__item calendar__item_between-active"&gt;16&lt;/span&gt;<br/>           &lt;span class="calendar__item calendar__item_between-active"&gt;17&lt;/span&gt;<br/>           &lt;span class="calendar__item calendar__item_active"&gt;18&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;19&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;20&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;21&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;22&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;23&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;24&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;25&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;26&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;27&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;28&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;29&lt;/span&gt;<br/>           &lt;span class="calendar__item"&gt;30&lt;/span&gt;<br/>      &lt;/div&gt;<br/>   &lt;/div&gt;<br/>&lt;/div&gt;
+                                                </code>
+                                            </pre>
+                                    </div>
+                                    <div class="tabs__content tabs__content-2">
+                                        <pre>
+                                           <code>
+                                            <br/>.calendar{<br/>    width: 100%;<br/>    border: 1px solid var(--grey-3);<br/>    border-radius: 8px;<br/>    padding: 20px 32px;<br/>}<br/>.calendar__title{<br/>    text-align: center;<br/>    color: var(--blue-1);<br/>    font-family: Inter, sans-serif;<br/>    font-size: 20px;<br/>    font-style: normal;<br/>    font-weight: 600;<br/>    line-height: 20px; <br/>}<br/>.calendar__wrapper{<br/>    position: relative;<br/>    padding-bottom: 100%;<br/>}<br/>.calendar__inner{<br/>    position: absolute;<br/>    top: 0;<br/>    left: 0;<br/>    right: 0;<br/>    bottom: 0;<br/>    display: grid;<br/>    grid-template-columns: repeat(7, 1fr);<br/>    justify-content: space-around;<br/><br/>}<br/><br/>.calendar__item{<br/>    display: flex;<br/>    justify-content: center;<br/>    align-items: center;<br/>    color:var(--blue-1);<br/>    text-align: center;<br/>    font-family: Source Sans Pro, sans-serif;<br/>    font-size: 16px;<br/>    font-style: normal;<br/>    font-weight: 400;<br/>}<br/>.calendar__item_day{<br/>    color:  var(--grey-blue);<br/>    font-family: Inter, sans-serif;<br/>    font-size: 14px; <br/>    line-height: 20px;<br/>}<br/>.calendar__item_active{<br/>    background: var(--blue);<br/>    color: var(--white);<br/>}<br/>.calendar__item_between-active{<br/>    background: var(--primary-lighten);<br/>    color: var(--white);<br/>}<br/><br/>.calendar_size_mini {<br/>    font-size: 10px;<br/><br/>}<br/>.calendar_title_mini{<br/>    font-size: 14px;<br/>}<br/>.calendar_wrapper_mini{<br/>    max-width: 200px;<br/>    width: 200px;<br/>    min-width: 75px;<br/><br/>}<br/>.inner__page-calendar{<br/>    max-width: 300px;<br/>    width: 300px;<br/>    min-width: 150px;<br/>    margin-bottom: 2rem;<br/>}<br/><br/>  <br/> 
+                                           </code>
+                                        </pre>
+                                    </div>
+                            </section>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+            <footer class="bg-grey footer__page">
+                <div class="container">
+                    <p class="footer__page-text">Reusable component library</p>
+                </div>
+            </footer>   
+</main>
+<script src="../../main.js"></script>
+</body>
+</html>

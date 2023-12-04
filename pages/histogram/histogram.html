@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="./histogram.css">
+    <title>Histogram</title>
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="sun" viewBox="0 0 24 24">
+            <g fill-rule="evenodd" clip-path="url(#a)" clip-rule="evenodd"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-6 4a6 6 0 1 1 12 0 6 6 0 0 1-12 0ZM12 0a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V1a1 1 0 0 1 1-1ZM12 20a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1ZM3.513 3.513a1 1 0 0 1 1.414 0l1.42 1.42a1 1 0 0 1-1.414 1.414l-1.42-1.42a1 1 0 0 1 0-1.414ZM17.653 17.653a1 1 0 0 1 1.414 0l1.42 1.42a1 1 0 0 1-1.414 1.414l-1.42-1.42a1 1 0 0 1 0-1.414ZM0 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1ZM20 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1ZM6.347 17.653a1 1 0 0 1 0 1.414l-1.42 1.42a1 1 0 0 1-1.414-1.414l1.42-1.42a1 1 0 0 1 1.414 0ZM20.487 3.513a1 1 0 0 1 0 1.414l-1.42 1.42a1 1 0 1 1-1.414-1.414l1.42-1.42a1 1 0 0 1 1.414 0Z"/></g>
+        </symbol>
+        <symbol id="moon" viewBox="0 0 24 24">
+            <path fill-rule="evenodd" d="M12.081 2.509a1 1 0 0 1-.067 1.085 6 6 0 0 0 8.392 8.392l.594.804.996.092A10 10 0 1 1 11.118 2.004a1 1 0 0 1 .963.505Zm7.48 12.175A7.999 7.999 0 0 1 9.316 4.439a8 8 0 1 0 10.245 10.245Z" clip-rule="evenodd"/>
+        </symbol>
+    </svg>
+    <main class="flex-grow bg-grey">
+        <header class="header bg-grey">
+            <div class="container">
+                <div class="header__inner">
+                    <a href="../../index.html" class="header__logo">
+                    <svg width="30" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                     <rect width="30" height="32" fill="#212429"/>
+                     </svg>
+                    <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect width="32" height="32" rx="16" fill="#212429"/>
+                        </svg>
+                        <svg width="32" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M0 0L32 32H0V0Z" fill="#212429"/>
+                        </svg>
+                    </a>
+                    <div class="header__theme toggle-mode-input">
+                        <svg class="svg-sprite" style="fill: var(--grey-3);">
+                            <use xlink:href="#sun"></use>
+                        </svg>
+                        <label class="toggler">
+                            <input type="checkbox" class="toggler__input" name="toggler" value="1">
+                            <div class="toggler__state">
+                                <div class="toggler__control">
+                                  <div class="toggler__checked"></div>
+                                </div>
+                            </div>
+                        </label>
+                        <svg class="svg-sprite" style="fill: var(--grey-3);">
+                            <use xlink:href="#moon"></use>
+                        </svg>
+                    </div>
+                </div>
+            </div>
+            </header>
+        <div class="container">
+            <div class="inner__page">
+                    <aside class="sidebar">
+                        <h4 class="sidebar__title">Components</h4>
+                        <nav class="sidebar__menu">
+                            <a href="../modal/modal.html">Modal</a>
+                            <a href="../tooltip/tooltip.html" >Tooltip</a>
+                            <a href="../avatar/avatar.html">Avatar</a>
+                            <a href="../calendar/calendar.html" >Calendar</a>
+                            <a href="histogram.html" class="active">Histogram</a>
+                            <a href="../formgroup/formgroup.html">Custom form elements</a>
+                        </nav>
+                    </aside>
+                    <div class="inner__page-content bg-white box-shadow">
+                        <div class="container">
+                            <h3 class="page__title">Histogram</h3>
+                          <div class="inner__page-histigram">
+                            <div class="histogram">
+                                <div class="histogram__header">
+                                    <h3 class="histogram__title">Total orders</h3>
+                                    <a href="#" class="histogram__link">View all</a>
+                                </div>
+                                <p class="histogram__total">50254</p>
+                                <div class="histogram__bars">
+                                    <div class="histogram__bar" style="height: 20%"></div>
+                                    <div class="histogram__bar" style="height: 50%"></div>
+                                    <div class="histogram__bar" style="height: 40%"></div>
+                                    <div class="histogram__bar" style="height: 70%"></div>
+                                    <div class="histogram__bar" style="height: 30%"></div>
+                                    <div class="histogram__bar" style="height: 40%"></div>
+                                    <div class="histogram__bar" style="height: 50%"></div>
+                                    <div class="histogram__bar" style="height: 10%"></div>
+                                    <div class="histogram__bar" style="height: 40%"></div>
+                                    <div class="histogram__bar" style="height: 10%"></div>
+                                    <div class="histogram__bar" style="height: 50%"></div>
+                                    <div class="histogram__bar" style="height: 20%"></div>
+                                    <div class="histogram__bar" style="height: 90%"></div>
+                                    <div class="histogram__bar" style="height: 30%"></div>
+                                    <div class="histogram__bar" style="height: 40%"></div>
+                                    <div class="histogram__bar" style="height: 50%"></div>
+                                    <div class="histogram__bar" style="height: 10%"></div>
+                                    <div class="histogram__bar" style="height: 90%"></div>
+                                    <div class="histogram__bar" style="height: 10%"></div>
+                                    <div class="histogram__bar" style="height: 50%"></div>
+                                    <div class="histogram__bar" style="height: 20%"></div>
+                                    <div class="histogram__bar" style="height: 80%"></div>
+                                    <div class="histogram__bar" style="height: 30%"></div>
+                                    <div class="histogram__bar" style="height: 40%"></div>
+                                    <div class="histogram__bar" style="height: 50%"></div>
+                                    <div class="histogram__bar" style="height: 10%"></div>
+                                    <div class="histogram__bar" style="height: 90%"></div>
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="tabs">
+                            <input type="radio" name="tabs" id="tab1" checked>
+                            <input type="radio" name="tabs" id="tab2">
+                            <nav class="tabs__nav">
+                                <ul class="tabs__menu">
+                                    <li>
+                                        <label for="tab1">HTML</label>
+                                    </li>
+                                    <li>
+                                        <label for="tab2">CSS</label>
+                                    </li>
+                                </ul>
+                            </nav>
+                                <section>
+                                    <div class="tabs__content tabs__content-1">
+                                            <pre>
+                                                <code>
+                                                    <br/>&lt;div class="histogram"&gt;<br/>   &lt;div class="histogram__header"&gt;<br/>     &lt;h3 class="histogram__title"&gt;Total orders&lt;/h3&gt;<br/>       &lt;a href="#" class="histogram__link"&gt;View all&lt;/a&gt;<br/>   &lt;/div&gt;<br/>     &lt;p class="histogram__total"&gt;50254&lt;/p&gt;<br/>   &lt;div class="histogram__bars"&gt;<br/>       &lt;div class="histogram__bar" style="height: 20%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 50%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 40%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 90%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 30%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 40%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 50%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 10%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 90%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 10%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 50%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 20%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 90%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 30%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 40%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 50%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 10%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 90%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 10%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 50%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 20%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 80%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 30%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 40%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 50%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 10%"&gt;&lt;/div&gt;<br/>       &lt;div class="histogram__bar" style="height: 90%"&gt;&lt;/div&gt;<br/>   &lt;/div&gt;<br/>&lt;/div&gt;
+                                                </code>
+                                            </pre>
+                                    </div>
+                                    <div class="tabs__content tabs__content-2">
+                                        <pre>
+                                           <code>
+                                            <br/>.histogram__wrapper{<br/>    width: 100%;<br/>    padding-bottom: 32px;<br/>}<br/>.histogram{<br/>    width: 100%;<br/>    border: 1px solid var(--grey-3);<br/>    box-sizing: border-box;<br/>    border-radius: 8px;<br/>    padding: 16px 24px 24px 24px;<br/>}<br/>.histogram__header{<br/>    display: flex;<br/>    justify-content: space-between;<br/>    align-items: baseline;<br/>    margin-bottom: 6px;<br/>}<br/>.histogram__title{<br/>    color: var(--black);<br/>    font-family: Inter, sans-serif;<br/>    font-size: 16px;<br/>    font-style: normal;<br/>    font-weight: 400;<br/>    line-height: 24px; <br/>    opacity: 0.9;<br/>}<br/>.histogram__link{<br/>    color: var(--blue);<br/>    font-family: Inter, sans-serif;<br/>    font-size: 16px;<br/>    font-style: normal;<br/>    font-weight: 400;<br/>    line-height: 24px; <br/>}<br/>.histogram__total{<br/>    margin-bottom: 39px;<br/>    color: var(--black);<br/>    font-family: Inter;<br/>    font-size: 20px;<br/>    font-style: normal;<br/>    font-weight: 400;<br/>    display: block;<br/>    line-height: 26px; <br/>}<br/><br/>.histogram__bars{<br/>    width: 100%;<br/>    display: flex;<br/>    justify-content: stretch;<br/>    align-items: flex-end;<br/>    flex-wrap: nowrap;<br/>    height: 50px;<br/>    animation: appear 0.6s ease-out;<br/>}<br/>@keyframes appear {<br/>    0% {<br/>        transform: scaleY(0);<br/>        transform-origin: bottom center;<br/>    }<br/>    50% {<br/>        transform: scaleY(0);<br/>        transform-origin: bottom center;<br/>    }<br/>    100% {<br/>        transform: scaleY(1);<br/>        transform-origin: bottom center;<br/>    }<br/>  }<br/>.histogram__bar{<br/>    flex: 1 0 auto;<br/>    margin-right: 1px;<br/>    background: var(--blue);<br/>}<br/>.histogram__bar:last-child {<br/>    margin-right: 0;<br/>}<br/>.inner__page-histigram{<br/>    margin-bottom: 2rem;<br/>}<br/>
+
+                                           </code>
+                                        </pre>
+                                    </div>
+                            </section>
+                        </div>
+                    </div>
+                    </div>
+            </div>
+            <footer class="bg-grey footer__page">
+                <div class="container">
+                    <p class="footer__page-text">Reusable component library</p>
+                </div>
+               </footer>   
+</main>
+<script src="../../main.js"></script>
+</body>
+</html>

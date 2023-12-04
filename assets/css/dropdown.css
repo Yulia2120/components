@@ -1,0 +1,47 @@
+@import url("../../01-button/button.css");
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown__menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    z-index: 1;
+    animation: fadeInOut 0.5s ease-in-out forwards;
+}
+@keyframes fadeInOut {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.dropdown__menu li {
+    padding: 0.5rem 2rem;
+    text-wrap: nowrap;
+
+
+}
+
+.dropdown__menu li a {
+    text-decoration: none;
+    color: var(--grey-4);
+    display: block;
+}
+
+.dropdown:hover .dropdown__menu {
+    display: block;
+    animation-name: fadeInOut;
+}
