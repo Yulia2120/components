@@ -80,7 +80,6 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    background-color: var(--white);
     transition: background-color 0.2s ease-in-out, border-color 0.2s ease-in-out; 
 }
 .checkbox__control-disabled{
@@ -100,7 +99,7 @@
     display: none; /* Скрыть SVG в дефолтном состоянии темной темы */
   }
 .checkbox__input:checked + .checkbox__state .checkbox__control .dark {
-    fill: var(--black); /* Заливка для темной темы */
+    fill: var(--white-tg); /* Заливка для темной темы */
     
   }
 .checkbox__input:checked ~ .checkbox__state .checkbox__control{
@@ -187,6 +186,7 @@
    margin: 2rem 0;
 }
 
+
 /* input */
 .input{
     display: flex;
@@ -225,7 +225,7 @@
 .input__input::placeholder{
     opacity: 1;
     transition: opacity .3s ease ;
-    font-size: 10px;
+    font-size: 12px;
    }
    .input__input:focus::placeholder{
      opacity: 0;
@@ -265,5 +265,8 @@
         }
         .input__title{
             text-transform: uppercase;
+        }
+        .input__input::placeholder{
+            font-size: 1rem;
         }
    }
