@@ -1,826 +1,1414 @@
 <!DOCTYPE html>
 <html lang="en" data-mode="light">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="color-scheme" content="dark light">
-    <link rel="stylesheet" href="assets/css/main.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="dark light" />
+    <link rel="stylesheet" href="assets/css/main.css" />
     <title>Components</title>
-</head>
-<body>
-    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-        <symbol id="arrow-close" viewBox="0 0 18 10">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 8 8 8-8"/>
-        </symbol>
-        <symbol id="check" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-5-5a1 1 0 1 1 1.414-1.414L9 15.586 19.293 5.293a1 1 0 0 1 1.414 0Z" clip-rule="evenodd"/>
-        </symbol>
-        <symbol id="error" viewBox="0 0 24 24">
-            <g fill="#f03d3e" fill-rule="evenodd" clip-rule="evenodd"><path d="M10.528 2.283a3 3 0 0 1 4.037 1.058l.003.005 8.47 14.14.008.014a2.999 2.999 0 0 1-2.565 4.5H3.519a3.001 3.001 0 0 1-2.565-4.5l.008-.014 8.47-14.14.858.514-.855-.519a3 3 0 0 1 1.093-1.058Zm.618 2.094L2.683 18.506A1 1 0 0 0 3.536 20h16.928a1 1 0 0 0 .853-1.494L12.855 4.379l-.001-.002a1 1 0 0 0-1.708 0Z"/><path d="M12 8a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1ZM12 15a1 1 0 0 1 1 1v.5a1 1 0 1 1-2 0V16a1 1 0 0 1 1-1Z"/></g>
-        </symbol>
-        <symbol id="help" viewBox="0 0 24 24">
-            <g fill-rule="evenodd" clip-rule="evenodd"><path d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12Z"/><path d="M12.258 8.024a2 2 0 0 0-2.224 1.308 1 1 0 0 1-1.887-.664 4 4 0 0 1 7.773 1.333c0 1.53-1.135 2.54-1.945 3.081a8.045 8.045 0 0 1-1.686.848l-.035.013-.011.003-.004.002h-.001s-.002 0-.318-.948l.316.949a1 1 0 0 1-.633-1.897h-.001l.017-.006a5.763 5.763 0 0 0 .364-.147c.247-.11.568-.272.882-.481.69-.46 1.055-.949 1.055-1.418v-.002a2 2 0 0 0-1.662-1.974ZM12 15a1 1 0 0 1 1 1v.5a1 1 0 1 1-2 0V16a1 1 0 0 1 1-1Z"/></g>
-        </symbol>
-        <symbol id="menu" viewBox="0 0 24 24">
-            <g fill-rule="evenodd" clip-rule="evenodd"><path d="M2 12a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1ZM2 6a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1ZM2 18a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Z"/></g>
-        </symbol>
-        <symbol id="moon" viewBox="0 0 24 24">
-            <path fill-rule="evenodd" d="M12.081 2.509a1 1 0 0 1-.067 1.085 6 6 0 0 0 8.392 8.392l.594.804.996.092A10 10 0 1 1 11.118 2.004a1 1 0 0 1 .963.505Zm7.48 12.175A7.999 7.999 0 0 1 9.316 4.439a8 8 0 1 0 10.245 10.245Z" clip-rule="evenodd"/>
-        </symbol>
-        <symbol id="success" viewBox="0 0 24 24">
-            <g fill="#374fc7" fill-rule="evenodd" clip-rule="evenodd"><path d="M15.663 3.773A9 9 0 1 0 21 12v-.919a1 1 0 1 1 2 0V12A11.002 11.002 0 0 1 8.188 22.313a11 11 0 1 1 8.289-20.366 1 1 0 1 1-.814 1.826Z"/><path d="M22.707 3.293a1 1 0 0 1 0 1.414l-10 10.01a1 1 0 0 1-1.414 0l-3-3a1 1 0 1 1 1.414-1.414L12 12.595l9.293-9.302a1 1 0 0 1 1.414 0Z"/></g>
-        </symbol>
-        <symbol id="sun" viewBox="0 0 24 24">
-            <g fill-rule="evenodd" clip-path="url(#a)" clip-rule="evenodd"><path d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-6 4a6 6 0 1 1 12 0 6 6 0 0 1-12 0ZM12 0a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V1a1 1 0 0 1 1-1ZM12 20a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1ZM3.513 3.513a1 1 0 0 1 1.414 0l1.42 1.42a1 1 0 0 1-1.414 1.414l-1.42-1.42a1 1 0 0 1 0-1.414ZM17.653 17.653a1 1 0 0 1 1.414 0l1.42 1.42a1 1 0 0 1-1.414 1.414l-1.42-1.42a1 1 0 0 1 0-1.414ZM0 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1ZM20 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1ZM6.347 17.653a1 1 0 0 1 0 1.414l-1.42 1.42a1 1 0 0 1-1.414-1.414l1.42-1.42a1 1 0 0 1 1.414 0ZM20.487 3.513a1 1 0 0 1 0 1.414l-1.42 1.42a1 1 0 1 1-1.414-1.414l1.42-1.42a1 1 0 0 1 1.414 0Z"/></g>
-        </symbol>
-        <symbol id="close" viewBox="0 0 24 24">
-            <g fill-rule="evenodd" clip-rule="evenodd"><path d="M18.707 5.293a1 1 0 0 1 0 1.414l-12 12a1 1 0 0 1-1.414-1.414l12-12a1 1 0 0 1 1.414 0Z"/><path d="M5.293 5.293a1 1 0 0 1 1.414 0l12 12a1 1 0 0 1-1.414 1.414l-12-12a1 1 0 0 1 0-1.414Z"/></g>
-        </symbol>
+  </head>
+  <body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+      <symbol id="arrow-close" viewBox="0 0 18 10">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="m1 1 8 8 8-8"
+        />
+      </symbol>
+      <symbol id="check" viewBox="0 0 24 24">
+        <path
+          fill-rule="evenodd"
+          d="M20.707 5.293a1 1 0 0 1 0 1.414l-11 11a1 1 0 0 1-1.414 0l-5-5a1 1 0 1 1 1.414-1.414L9 15.586 19.293 5.293a1 1 0 0 1 1.414 0Z"
+          clip-rule="evenodd"
+        />
+      </symbol>
+      <symbol id="error" viewBox="0 0 24 24">
+        <g fill="#f03d3e" fill-rule="evenodd" clip-rule="evenodd">
+          <path
+            d="M10.528 2.283a3 3 0 0 1 4.037 1.058l.003.005 8.47 14.14.008.014a2.999 2.999 0 0 1-2.565 4.5H3.519a3.001 3.001 0 0 1-2.565-4.5l.008-.014 8.47-14.14.858.514-.855-.519a3 3 0 0 1 1.093-1.058Zm.618 2.094L2.683 18.506A1 1 0 0 0 3.536 20h16.928a1 1 0 0 0 .853-1.494L12.855 4.379l-.001-.002a1 1 0 0 0-1.708 0Z"
+          />
+          <path
+            d="M12 8a1 1 0 0 1 1 1v4a1 1 0 1 1-2 0V9a1 1 0 0 1 1-1ZM12 15a1 1 0 0 1 1 1v.5a1 1 0 1 1-2 0V16a1 1 0 0 1 1-1Z"
+          />
+        </g>
+      </symbol>
+      <symbol id="help" viewBox="0 0 24 24">
+        <g fill-rule="evenodd" clip-rule="evenodd">
+          <path
+            d="M12 3a9 9 0 1 0 0 18 9 9 0 0 0 0-18ZM1 12C1 5.925 5.925 1 12 1s11 4.925 11 11-4.925 11-11 11S1 18.075 1 12Z"
+          />
+          <path
+            d="M12.258 8.024a2 2 0 0 0-2.224 1.308 1 1 0 0 1-1.887-.664 4 4 0 0 1 7.773 1.333c0 1.53-1.135 2.54-1.945 3.081a8.045 8.045 0 0 1-1.686.848l-.035.013-.011.003-.004.002h-.001s-.002 0-.318-.948l.316.949a1 1 0 0 1-.633-1.897h-.001l.017-.006a5.763 5.763 0 0 0 .364-.147c.247-.11.568-.272.882-.481.69-.46 1.055-.949 1.055-1.418v-.002a2 2 0 0 0-1.662-1.974ZM12 15a1 1 0 0 1 1 1v.5a1 1 0 1 1-2 0V16a1 1 0 0 1 1-1Z"
+          />
+        </g>
+      </symbol>
+      <symbol id="menu" viewBox="0 0 24 24">
+        <g fill-rule="evenodd" clip-rule="evenodd">
+          <path
+            d="M2 12a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1ZM2 6a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1ZM2 18a1 1 0 0 1 1-1h18a1 1 0 1 1 0 2H3a1 1 0 0 1-1-1Z"
+          />
+        </g>
+      </symbol>
+      <symbol id="moon" viewBox="0 0 24 24">
+        <path
+          fill-rule="evenodd"
+          d="M12.081 2.509a1 1 0 0 1-.067 1.085 6 6 0 0 0 8.392 8.392l.594.804.996.092A10 10 0 1 1 11.118 2.004a1 1 0 0 1 .963.505Zm7.48 12.175A7.999 7.999 0 0 1 9.316 4.439a8 8 0 1 0 10.245 10.245Z"
+          clip-rule="evenodd"
+        />
+      </symbol>
+      <symbol id="success" viewBox="0 0 24 24">
+        <g fill="#374fc7" fill-rule="evenodd" clip-rule="evenodd">
+          <path
+            d="M15.663 3.773A9 9 0 1 0 21 12v-.919a1 1 0 1 1 2 0V12A11.002 11.002 0 0 1 8.188 22.313a11 11 0 1 1 8.289-20.366 1 1 0 1 1-.814 1.826Z"
+          />
+          <path
+            d="M22.707 3.293a1 1 0 0 1 0 1.414l-10 10.01a1 1 0 0 1-1.414 0l-3-3a1 1 0 1 1 1.414-1.414L12 12.595l9.293-9.302a1 1 0 0 1 1.414 0Z"
+          />
+        </g>
+      </symbol>
+      <symbol id="sun" viewBox="0 0 24 24">
+        <g fill-rule="evenodd" clip-path="url(#a)" clip-rule="evenodd">
+          <path
+            d="M12 8a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-6 4a6 6 0 1 1 12 0 6 6 0 0 1-12 0ZM12 0a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0V1a1 1 0 0 1 1-1ZM12 20a1 1 0 0 1 1 1v2a1 1 0 1 1-2 0v-2a1 1 0 0 1 1-1ZM3.513 3.513a1 1 0 0 1 1.414 0l1.42 1.42a1 1 0 0 1-1.414 1.414l-1.42-1.42a1 1 0 0 1 0-1.414ZM17.653 17.653a1 1 0 0 1 1.414 0l1.42 1.42a1 1 0 0 1-1.414 1.414l-1.42-1.42a1 1 0 0 1 0-1.414ZM0 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2H1a1 1 0 0 1-1-1ZM20 12a1 1 0 0 1 1-1h2a1 1 0 1 1 0 2h-2a1 1 0 0 1-1-1ZM6.347 17.653a1 1 0 0 1 0 1.414l-1.42 1.42a1 1 0 0 1-1.414-1.414l1.42-1.42a1 1 0 0 1 1.414 0ZM20.487 3.513a1 1 0 0 1 0 1.414l-1.42 1.42a1 1 0 1 1-1.414-1.414l1.42-1.42a1 1 0 0 1 1.414 0Z"
+          />
+        </g>
+      </symbol>
+      <symbol id="close" viewBox="0 0 24 24">
+        <g fill-rule="evenodd" clip-rule="evenodd">
+          <path
+            d="M18.707 5.293a1 1 0 0 1 0 1.414l-12 12a1 1 0 0 1-1.414-1.414l12-12a1 1 0 0 1 1.414 0Z"
+          />
+          <path
+            d="M5.293 5.293a1 1 0 0 1 1.414 0l12 12a1 1 0 0 1-1.414 1.414l-12-12a1 1 0 0 1 0-1.414Z"
+          />
+        </g>
+      </symbol>
     </svg>
     <main>
-        <header class="header">
-            <div class="container">
-                <div class="header__inner">
-                    <!-- Mobile Modal Window - start -->
-                    <a href="#mobile-menu" class="header__mobile-menuform_toggle">
+      <header class="header">
+        <div class="container">
+          <div class="header__inner">
+            <!-- Mobile Modal Window - start -->
+            <a href="#mobile-menu" class="header__mobile-menuform_toggle">
+              <svg class="svg-sprite">
+                <use xlink:href="#menu" style="fill: var(--grey-3)"></use>
+              </svg>
+            </a>
+            <div id="mobile-menu" class="modal_menu">
+              <div class="modal__window-menu">
+                <div class="header">
+                  <div>
+                    <div class="header__inner">
+                      <div class="header__logo">
+                        <svg
+                          class="svg-logo"
+                          width="30"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect width="30" height="32" />
+                        </svg>
+                        <svg
+                          class="svg-logo"
+                          width="32"
+                          height="32"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <rect width="32" height="32" rx="16" />
+                        </svg>
+                        <svg
+                          class="svg-logo"
+                          width="32"
+                          height="30"
+                          viewBox="0 0 32 32"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path d="M0 0L32 32H0V0Z" />
+                        </svg>
+                      </div>
+                      <a href="#" title="Close" class="menu__close">
                         <svg class="svg-sprite">
-                            <use xlink:href="#menu" style="fill: var(--grey-3);"></use>
+                          <use
+                            xlink:href="#close"
+                            style="fill: var(--grey-3)"
+                          ></use>
                         </svg>
-                    </a>
-                    <div id="mobile-menu" class="modal_menu">
-                        <div class="modal__window-menu">
-                            <div class="header">
-                                <div>
-                                    <div class="header__inner">
-                                        <div class="header__logo">
-                                            <svg class="svg-logo" width="30" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                <rect width="30" height="32"/>
-                                                </svg>
-                                               <svg class="svg-logo" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                   <rect width="32" height="32" rx="16"/>
-                                                </svg>
-                                                <svg class="svg-logo" width="32" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M0 0L32 32H0V0Z"/>
-                                            </svg>
-                                        </div>
-                                        <a href="#" title="Close" class="menu__close">
-                                            <svg class="svg-sprite">
-                                                <use xlink:href="#close" style="fill: var(--grey-3);"></use>
-                                            </svg>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="modal__body">
-                                <aside class="sidebar">
-                                    <h4 class="modal__menu-title">Components</h4>
-                                    <nav class="modal__menu">
-                                        <a href="./pages/modal/modal.html">Modal</a>
-                                        <a href="./pages/tooltip/tooltip.html">Tooltip</a>
-                                        <a href="./pages/avatar/avatar.html">Avatar</a>
-                                        <a href="./pages/calendar/calendar.html">Calendar</a>
-                                        <a href="./pages/histogram/histogram.html">Histogram</a>
-                                        <a href="./pages/formgroup/formgroup.html">Custom form elements</a>
-                                    </nav>
-                                </aside>
-                            </div>
-                        </div>
+                      </a>
                     </div>
-                    <!-- Mobile Modal Window - end -->
-                    <a href="index.html" class="header__logo">
-                    <svg class="svg-logo" width="30" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <rect width="30" height="32"/>
-                        </svg>
-                       <svg class="svg-logo" width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                           <rect width="32" height="32" rx="16"/>
-                           </svg>
-                           <svg class="svg-logo" width="32" height="30" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
-                               <path d="M0 0L32 32H0V0Z"/>
-                        </svg>
-                    </a>
-                    <div class="header__theme toggle-mode-input">
-                        <svg class="svg-sprite" style="fill: var(--grey-3);">
-                            <use xlink:href="#sun"></use>
-                        </svg>
-                        <label class="toggler">
-                            <input type="checkbox" class="toggler__input" name="toggler" value="1">
-                            <div class="toggler__state">
-                                <div class="toggler__control">
-                                  <div class="toggler__checked"></div>
-                                </div>
-                            </div>
-                        </label>
-                        <svg class="svg-sprite" style="fill: var(--grey-3);">
-                            <use xlink:href="#moon"></use>
-                        </svg>
-                    </div>
+                  </div>
                 </div>
+                <div class="modal__body">
+                  <aside class="sidebar">
+                    <h4 class="modal__menu-title">Components</h4>
+                    <nav class="modal__menu">
+                      <a href="./pages/modal/modal.html">Modal</a>
+                      <a href="./pages/tooltip/tooltip.html">Tooltip</a>
+                      <a href="./pages/avatar/avatar.html">Avatar</a>
+                      <a href="./pages/calendar/calendar.html">Calendar</a>
+                      <a href="./pages/histogram/histogram.html">Histogram</a>
+                      <a href="./pages/formgroup/formgroup.html"
+                        >Custom form elements</a
+                      >
+                    </nav>
+                  </aside>
+                </div>
+              </div>
             </div>
-        </header>
-        <section class="flex-grow">
-                <div class="container">
-                    <h1 class="header__title">Reusable component library</h1>
+            <!-- Mobile Modal Window - end -->
+            <a href="index.html" class="header__logo">
+              <svg
+                class="svg-logo"
+                width="30"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="30" height="32" />
+              </svg>
+              <svg
+                class="svg-logo"
+                width="32"
+                height="32"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="32" height="32" rx="16" />
+              </svg>
+              <svg
+                class="svg-logo"
+                width="32"
+                height="30"
+                viewBox="0 0 32 32"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M0 0L32 32H0V0Z" />
+              </svg>
+            </a>
+            <div class="header__theme toggle-mode-input">
+              <svg class="svg-sprite" style="fill: var(--grey-3)">
+                <use xlink:href="#sun"></use>
+              </svg>
+              <label class="toggler">
+                <input
+                  type="checkbox"
+                  class="toggler__input"
+                  name="toggler"
+                  value="1"
+                />
+                <div class="toggler__state">
+                  <div class="toggler__control">
+                    <div class="toggler__checked"></div>
+                  </div>
                 </div>
-                <div class="tabs">
-                    <input type="radio" name="tabs" id="tab1" checked>
-                    <input type="radio" name="tabs" id="tab2">
-                    <input type="radio" name="tabs" id="tab3">
-                    <input type="radio" name="tabs" id="tab4">
-                    <nav class="tabs__nav">
-                        <div class="container">
-                            <ul class="tabs__menu">
-                                <li>
-                                    <label for="tab1">All components</label>
-                                </li>
-                                <li>
-                                    <label for="tab2">Atoms</label>
-                                </li>
-                                <li>
-                                    <label for="tab3">Molecules</label>
-                                </li>
-                                <li>
-                                    <label for="tab4">Organisms</label>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>    
-        <section>
-          
+              </label>
+              <svg class="svg-sprite" style="fill: var(--grey-3)">
+                <use xlink:href="#moon"></use>
+              </svg>
+            </div>
+          </div>
+        </div>
+      </header>
+      <section class="flex-grow">
+        <div class="container">
+          <h1 class="header__title">Reusable component library</h1>
+        </div>
+        <div class="tabs">
+          <input type="radio" name="tabs" id="tab1" checked />
+          <input type="radio" name="tabs" id="tab2" />
+          <input type="radio" name="tabs" id="tab3" />
+          <input type="radio" name="tabs" id="tab4" />
+          <nav class="tabs__nav">
+            <div class="container">
+              <ul class="tabs__menu">
+                <li>
+                  <label for="tab1">All components</label>
+                </li>
+                <li>
+                  <label for="tab2">Atoms</label>
+                </li>
+                <li>
+                  <label for="tab3">Molecules</label>
+                </li>
+                <li>
+                  <label for="tab4">Organisms</label>
+                </li>
+              </ul>
+            </div>
+          </nav>
+          <section>
             <div class="tabs__content tabs__content-1 bg-grey">
-                <div class="container">
-                    <div class="card__grid">
-                        <a href="./pages/tooltip/tooltip.html" class="card__item">
-                            <div class="card__body">
-                                <div class="tooltip" style="transform: translateY(40px);">
-                                    <div class="tooltip__icon">
-                                        <svg class="svg-sprite">
-                                            <use xlink:href="#help"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="tooltip__show">
-                                        Helper text
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card__footer">
-                                <h4 class="card__title">Tooltip</h4>
-                                <p>Atom</p>
-                            </div>
-                        </a>
-                        <a href="./pages/modal/modal.html" class="card__item">  
-                         <div class="card__body">
-                            <div class="modal__window_preview">
-                                <p>Modal</p>
-                                <div class="modal__close">
-                                    <svg class="svg-sprite" style="fill: var(--grey-4);">
-                                        <use xlink:href="#close"></use>
-                                    </svg>
-                                </div>
-                                <div class="modal__body">
-                                    <label class="modal__label" for="email">Email</label>
-                                    <input class="modal__input" type="email" placeholder="Placeholder">
-                                    <button type="submit" class="button -primary modal__btn">
-                                        Submit
-                                    </button>
-                                </div>
-                            </div>
+              <div class="container">
+                <div class="card__grid">
+                  <a href="./pages/tooltip/tooltip.html" class="card__item">
+                    <div class="card__body">
+                      <div class="tooltip" style="transform: translateY(40px)">
+                        <div class="tooltip__icon">
+                          <svg class="svg-sprite">
+                            <use xlink:href="#help"></use>
+                          </svg>
                         </div>
-                
-                            <div class="card__footer">
-                                <h4 class="card__title">Modal</h4>
-                                <p>Organism</p>
-                            </div>
-                        </a>
-                        <a href="./pages/histogram/histogram.html" class="card__item">
-    
-                          <div class="card__body">
-                            <div class="histogram__wrapper">
-                                <div class="histogram">
-                                    <div class="histogram__header">
-                                        <h3 class="histogram__title">Total orders</h3>
-                                        <div href="#" class="histogram__link">View all</div>
-                                    </div>
-                                    <p class="histogram__total">50254</p>
-                                    <div class="histogram__bars">
-                                        <div class="histogram__bar" style="height: 30%"></div>
-                                        <div class="histogram__bar" style="height: 50%"></div>
-                                        <div class="histogram__bar" style="height: 70%"></div>
-                                        <div class="histogram__bar" style="height: 90%"></div>
-                                        <div class="histogram__bar" style="height: 30%"></div>
-                                        <div class="histogram__bar" style="height: 40%"></div>
-                                        <div class="histogram__bar" style="height: 50%"></div>
-                                        <div class="histogram__bar" style="height: 10%"></div>
-                                        <div class="histogram__bar" style="height: 90%"></div>
-                                        <div class="histogram__bar" style="height: 10%"></div>
-                                        <div class="histogram__bar" style="height: 50%"></div>
-                                        <div class="histogram__bar" style="height: 20%"></div>
-                                        <div class="histogram__bar" style="height: 90%"></div>
-                                        <div class="histogram__bar" style="height: 30%"></div>
-                                        <div class="histogram__bar" style="height: 40%"></div>
-                                        <div class="histogram__bar" style="height: 50%"></div>
-                                        <div class="histogram__bar" style="height: 10%"></div>
-                                        <div class="histogram__bar" style="height: 90%"></div>
-                                        <div class="histogram__bar" style="height: 10%"></div>
-                                        <div class="histogram__bar" style="height: 50%"></div>
-                                        <div class="histogram__bar" style="height: 20%"></div>
-                                        <div class="histogram__bar" style="height: 90%"></div>
-                                        <div class="histogram__bar" style="height: 30%"></div>
-                                        <div class="histogram__bar" style="height: 40%"></div>
-                                        <div class="histogram__bar" style="height: 50%"></div>
-                                        <div class="histogram__bar" style="height: 10%"></div>
-                                        <div class="histogram__bar" style="height: 90%"></div>
-                                    </div>
-                                </div>
-                            </div>
-                          </div>
-                          <div class="card__footer">
-                            <h4 class="card__title">Histogram</h4>
-                            <p>Organism</p>
-                        </div>
-                        </a>
-                        <a href="./pages/avatar/avatar.html" class="card__item">
-                            <div class="card__body">
-                                <div class="avatar__component_preview">
-                                    <div class="avatar">
-                                        <div class="avatar__square">
-                                            <img src="../assets/images/avatar.jpg" class="avatar__image" alt="avatar">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card__footer">
-                                <h4 class="card__title">Avatar</h4>
-                                <p>Atom</p>
-                            </div>
-                        </a>
-                        <a href="./pages/calendar/calendar.html" class="card__item">
-                            <div class="card__body">
-                                <div class="calendar calendar_wrapper_mini">
-                                    <div class="calendar__title calendar_title_mini">November 2023</div>
-                                    <div class="calendar__wrapper">
-                                        <div class="calendar__inner">
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Mon</span>
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Tue</span>
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Wed</span>
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Thu</span>
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Fri</span>
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Sat</span>
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Sun</span>
-                                            <span class="calendar__item calendar_size_mini"></span>
-                                            <span class="calendar__item calendar_size_mini"></span>
-                                            <span class="calendar__item calendar_size_mini">1</span>
-                                            <span class="calendar__item calendar_size_mini">2</span>
-                                            <span class="calendar__item calendar_size_mini">3</span>
-                                            <span class="calendar__item calendar_size_mini">4</span>
-                                            <span class="calendar__item calendar_size_mini">5</span>
-                                            <span class="calendar__item calendar_size_mini">6</span>
-                                            <span class="calendar__item calendar_size_mini">7</span>
-                                            <span class="calendar__item calendar_size_mini">8</span>
-                                            <span class="calendar__item calendar_size_mini">9</span>
-                                            <span class="calendar__item calendar_size_mini">10</span>
-                                            <span class="calendar__item calendar_size_mini">11</span>
-                                            <span class="calendar__item calendar_size_mini">12</span>
-                                            <span class="calendar__item calendar__item_active calendar_size_mini">13</span>
-                                            <span class="calendar__item calendar__item_between-active calendar_size_mini">14</span>
-                                            <span class="calendar__item calendar__item_between-active calendar_size_mini">15</span>
-                                            <span class="calendar__item calendar__item_between-active calendar_size_mini">16</span>
-                                            <span class="calendar__item calendar__item_between-active calendar_size_mini">17</span>
-                                            <span class="calendar__item calendar__item_active calendar_size_mini">18</span>
-                                            <span class="calendar__item calendar_size_mini">19</span>
-                                            <span class="calendar__item calendar_size_mini">20</span>
-                                            <span class="calendar__item calendar_size_mini">21</span>
-                                            <span class="calendar__item calendar_size_mini">22</span>
-                                            <span class="calendar__item calendar_size_mini">23</span>
-                                            <span class="calendar__item calendar_size_mini">24</span>
-                                            <span class="calendar__item calendar_size_mini">25</span>
-                                            <span class="calendar__item calendar_size_mini">26</span>
-                                            <span class="calendar__item calendar_size_mini">27</span>
-                                            <span class="calendar__item calendar_size_mini">28</span>
-                                            <span class="calendar__item calendar_size_mini">29</span>
-                                            <span class="calendar__item calendar_size_mini">30</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card__footer">
-                                <h4 class="card__title">Calendar</h4>
-                                <p>Molecule</p>
-                            </div>
-                        </a>
-                        <a href="./pages/formgroup/formgroup.html" class="card__item">
-                            <div class="card__body">
-                                <div class="form-elements">
-                                            <label class="toggler">
-                                                <input type="checkbox" class="toggler__input" name="toggler" value="1">
-                                                <div class="toggler__state">
-                                                    <div class="toggler__control">
-                                                      <div class="toggler__checked"></div>
-                                                    </div>
-                                                    <div class="toggler__title">Default</div>
-                                                </div>
-                                            </label>
-                                            <label class="toggler">
-                                                <input type="checkbox" class="toggler__input" name="toggler"  value="2" checked>
-                                                <div class="toggler__state">
-                                                    <div class="toggler__control">
-                                                      <div class="toggler__checked"></div>
-                                                    </div>
-                                                    <div class="toggler__title">Checked</div>
-                                                </div>
-                                            </label>
-                                            <label class="toggler">
-                                                <input type="checkbox" class="toggler__input" name="toggler" value="3" disabled>
-                                                <div class="toggler__state">
-                                                    <div class="toggler__control toggler__control-disabled">
-                                                    </div>
-                                                    <div class="toggler__title">Disabled</div>
-                                                </div>
-                                            </label>
-                            </div>
-                            </div>
-                            <div class="card__footer">
-                                <h4 class="card__title">Custom form elements</h4>
-                                <p>Molecules</p>
-                            </div>
-                        </a>
+                        <div class="tooltip__show">Helper text</div>
+                      </div>
                     </div>
+                    <div class="card__footer">
+                      <h4 class="card__title">Tooltip</h4>
+                      <p>Atom</p>
+                    </div>
+                  </a>
+                  <a href="./pages/modal/modal.html" class="card__item">
+                    <div class="card__body">
+                      <div class="modal__window_preview">
+                        <p>Modal</p>
+                        <div class="modal__close">
+                          <svg class="svg-sprite" style="fill: var(--grey-4)">
+                            <use xlink:href="#close"></use>
+                          </svg>
+                        </div>
+                        <div class="modal__body">
+                          <label class="modal__label" for="email">Email</label>
+                          <input
+                            class="modal__input"
+                            type="email"
+                            placeholder="Placeholder"
+                          />
+                          <button
+                            type="submit"
+                            class="button -primary modal__btn"
+                          >
+                            Submit
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="card__footer">
+                      <h4 class="card__title">Modal</h4>
+                      <p>Organism</p>
+                    </div>
+                  </a>
+                  <a href="./pages/histogram/histogram.html" class="card__item">
+                    <div class="card__body">
+                      <div class="histogram__wrapper">
+                        <div class="histogram">
+                          <div class="histogram__header">
+                            <h3 class="histogram__title">Total orders</h3>
+                            <div href="#" class="histogram__link">View all</div>
+                          </div>
+                          <p class="histogram__total">50254</p>
+                          <div class="histogram__bars">
+                            <div
+                              class="histogram__bar"
+                              style="height: 30%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 50%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 70%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 90%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 30%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 40%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 50%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 10%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 90%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 10%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 50%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 20%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 90%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 30%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 40%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 50%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 10%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 90%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 10%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 50%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 20%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 90%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 30%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 40%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 50%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 10%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 90%"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card__footer">
+                      <h4 class="card__title">Histogram</h4>
+                      <p>Organism</p>
+                    </div>
+                  </a>
+                  <a href="./pages/avatar/avatar.html" class="card__item">
+                    <div class="card__body">
+                      <div class="avatar__component_preview">
+                        <div class="avatar">
+                          <div class="avatar__square">
+                            <img
+                              src="../assets/images/avatar.jpg"
+                              class="avatar__image"
+                              alt="avatar"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card__footer">
+                      <h4 class="card__title">Avatar</h4>
+                      <p>Atom</p>
+                    </div>
+                  </a>
+                  <a href="./pages/calendar/calendar.html" class="card__item">
+                    <div class="card__body">
+                      <div class="calendar calendar_wrapper_mini">
+                        <div class="calendar__title calendar_title_mini">
+                          November 2023
+                        </div>
+                        <div class="calendar__wrapper">
+                          <div class="calendar__inner">
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Mon</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Tue</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Wed</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Thu</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Fri</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Sat</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Sun</span
+                            >
+                            <span
+                              class="calendar__item calendar_size_mini"
+                            ></span>
+                            <span
+                              class="calendar__item calendar_size_mini"
+                            ></span>
+                            <span class="calendar__item calendar_size_mini"
+                              >1</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >2</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >3</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >4</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >5</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >6</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >7</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >8</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >9</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >10</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >11</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >12</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_active calendar_size_mini"
+                              >13</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_between-active calendar_size_mini"
+                              >14</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_between-active calendar_size_mini"
+                              >15</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_between-active calendar_size_mini"
+                              >16</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_between-active calendar_size_mini"
+                              >17</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_active calendar_size_mini"
+                              >18</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >19</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >20</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >21</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >22</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >23</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >24</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >25</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >26</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >27</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >28</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >29</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >30</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card__footer">
+                      <h4 class="card__title">Calendar</h4>
+                      <p>Molecule</p>
+                    </div>
+                  </a>
+                  <a href="./pages/formgroup/formgroup.html" class="card__item">
+                    <div class="card__body">
+                      <div class="form-elements">
+                        <label class="toggler">
+                          <input
+                            type="checkbox"
+                            class="toggler__input"
+                            name="toggler"
+                            value="1"
+                          />
+                          <div class="toggler__state">
+                            <div class="toggler__control">
+                              <div class="toggler__checked"></div>
+                            </div>
+                            <div class="toggler__title">Default</div>
+                          </div>
+                        </label>
+                        <label class="toggler">
+                          <input
+                            type="checkbox"
+                            class="toggler__input"
+                            name="toggler"
+                            value="2"
+                            checked
+                          />
+                          <div class="toggler__state">
+                            <div class="toggler__control">
+                              <div class="toggler__checked"></div>
+                            </div>
+                            <div class="toggler__title">Checked</div>
+                          </div>
+                        </label>
+                        <label class="toggler">
+                          <input
+                            type="checkbox"
+                            class="toggler__input"
+                            name="toggler"
+                            value="3"
+                            disabled
+                          />
+                          <div class="toggler__state">
+                            <div
+                              class="toggler__control toggler__control-disabled"
+                            ></div>
+                            <div class="toggler__title">Disabled</div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="card__footer">
+                      <h4 class="card__title">Custom form elements</h4>
+                      <p>Molecules</p>
+                    </div>
+                  </a>
                 </div>
+              </div>
             </div>
             <div class="tabs__content tabs__content-2 bg-grey">
-                <div class="container">
-                    <div class="card__grid">
-                        <a href="./pages/tooltip/tooltip.html" class="card__item">
-            <div class="card__body">
-                <div class="tooltip" style="transform: translateY(40px);">
-                    <div class="tooltip__icon">
-                        <svg class="svg-sprite">
+              <div class="container">
+                <div class="card__grid">
+                  <a href="./pages/tooltip/tooltip.html" class="card__item">
+                    <div class="card__body">
+                      <div class="tooltip" style="transform: translateY(40px)">
+                        <div class="tooltip__icon">
+                          <svg class="svg-sprite">
                             <use xlink:href="#help"></use>
-                        </svg>
-                    </div>
-                    <div class="tooltip__show">
-                        Helper text
-                    </div>
-                </div>
-            </div>
-            <div class="card__footer">
-                <h4 class="card__title">Tooltip</h4>
-                <p>Atom</p>
-            </div>
-                        </a>
-                        <a href="./pages/avatar/avatar.html" class="card__item">
-            <div class="card__body">
-                <div class="avatar__component_preview">
-                    <div class="avatar">
-                        <div class="avatar__square">
-                            <img src="../assets/images/avatar.jpg" class="avatar__image" alt="avatar">
+                          </svg>
                         </div>
+                        <div class="tooltip__show">Helper text</div>
+                      </div>
                     </div>
-                </div>
-            </div>
-            <div class="card__footer">
-                <h4 class="card__title">Avatar</h4>
-                <p>Atom</p>
-            </div>
-                        </a>
+                    <div class="card__footer">
+                      <h4 class="card__title">Tooltip</h4>
+                      <p>Atom</p>
                     </div>
-                </div>
-                <div class="container">
-                    <h3 class="title">Buttons</h3>
-                    <div class="grid-4-columns">
-                        <button type="button" class="button">Button</button>
-                        <button type="button" class="button" disabled>Button disabled</button>
-                        <button type="button" class="button -primary">Primary</button>
-                        <button type="button" class="button -primary" disabled>Primary disabled</button>
-                        <button type="button" class="button -secondary">Secondary</button>
-                        <button type="button" class="button -secondary" disabled>Secondary disabled</button>
-                        <button type="button" class="button -alternate">Alternate</button>
-                        <button type="button" class="button -alternate" disabled>Alternate disabled</button>
-                    </div>
-                </div>
-                <div class="container">
-                    <h3 class="title">Custom form elements</h3>
-                    <div class="grid-3-columns">
-                        <div class="form">
-                            <label class="radio">
-                                <input type="radio" class="radio__input" name="radioGroup" value="1">
-                                <div class="radio__state">
-                                    <div class="radio__control">
-                                      <div class="radio__checked"></div>
-                                    </div>
-                                    <div class="radio__title">Default</div>
-                                </div>
-                            </label>
-                        </div>
-                        <div class="form">
-                            <label class="radio">
-                                <input type="radio" class="radio__input" name="radioGroup" value="2" checked>
-                                <div class="radio__state">
-                                    <div class="radio__control">
-                                      <div class="radio__checked"></div>
-                                    </div>
-                                    <div class="radio__title">Selected</div>
-                                </div>
-                            </label>
-                        </div>
-                           <div class="form">
-                            <label class="radio">
-                                <input type="radio" class="radio__input" name="radioGroup" value="3" disabled>
-                                <div class="radio__state">
-                                    <div class="radio__control radio__control-disabled">
-                                    </div>
-                                    <div class="radio__title">Disabled</div>
-                                </div>
-                            </label>
-                           </div>
-                           <div class="form">
-                            <label class="checkbox">
-                                <input type="checkbox" class="checkbox__input">
-                                <div class="checkbox__state">
-                                    <div class="checkbox__control">
-                                        <svg class="svg-sprite dark">
-                                            <use xlink:href="#check"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="checkbox__title">Default</div>
-                                </div>
-                            </label>
-                           </div>
-                           <div class="form">
-                            <label class="checkbox">
-                                <input type="checkbox" class="checkbox__input" checked>
-                                <div class="checkbox__state">
-                                    <div class="checkbox__control">
-                                        <svg class="svg-sprite dark">
-                                            <use xlink:href="#check"></use>
-                                        </svg>
-                                    </div>
-                                    <div class="checkbox__title">Checked</div>
-                                </div>
-                            </label>
-                           </div>
-                           <div class="form">
-                            <label class="checkbox">
-                                <input type="checkbox" class="checkbox__input" disabled>
-                                <div class="checkbox__state">
-                                    <div class="checkbox__control checkbox__control-disabled">
-                                    </div>
-                                    <div class="checkbox__title">Disabled</div>
-                                </div>
-                            </label>
-                           </div>
-                           <div class="form">
-                            <label class="toggler">
-                                <input type="checkbox" class="toggler__input" name="toggler" value="1">
-                                <div class="toggler__state">
-                                    <div class="toggler__control">
-                                      <div class="toggler__checked"></div>
-                                    </div>
-                                    <div class="toggler__title">Default</div>
-                                </div>
-                            </label>
-                           </div>
-                           <div class="form">
-                            <label class="toggler">
-                                <input type="checkbox" class="toggler__input" name="toggler"  value="2" checked>
-                                <div class="toggler__state">
-                                    <div class="toggler__control">
-                                      <div class="toggler__checked"></div>
-                                    </div>
-                                    <div class="toggler__title">Checked</div>
-                                </div>
-                            </label>
-                           </div>
-                           <div class="form">
-                            <label class="toggler">
-                                <input type="checkbox" class="toggler__input" name="toggler" value="3" disabled>
-                                <div class="toggler__state">
-                                    <div class="toggler__control toggler__control-disabled">
-                                    </div>
-                                    <div class="toggler__title">Disabled</div>
-                                </div>
-                            </label>
-                           </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tabs__content tabs__content-3 bg-grey">
-                <div class="container">
-                    <div class="card__grid">
-                        <a href="./pages/formgroup/formgroup.html" class="card__item">
-                            <div class="card__body">
-                                <div class="form-elements">
-                                            <label class="toggler">
-                                                <input type="checkbox" class="toggler__input" name="toggler" value="1">
-                                                <div class="toggler__state">
-                                                    <div class="toggler__control">
-                                                      <div class="toggler__checked"></div>
-                                                    </div>
-                                                    <div class="toggler__title">Default</div>
-                                                </div>
-                                            </label>
-                                            <label class="toggler">
-                                                <input type="checkbox" class="toggler__input" name="toggler"  value="2" checked>
-                                                <div class="toggler__state">
-                                                    <div class="toggler__control">
-                                                      <div class="toggler__checked"></div>
-                                                    </div>
-                                                    <div class="toggler__title">Checked</div>
-                                                </div>
-                                            </label>
-                                            <label class="toggler">
-                                                <input type="checkbox" class="toggler__input" name="toggler" value="3" disabled>
-                                                <div class="toggler__state">
-                                                    <div class="toggler__control toggler__control-disabled">
-                                                    </div>
-                                                    <div class="toggler__title">Disabled</div>
-                                                </div>
-                                            </label>
-                            </div>
-                            </div>
-                            <div class="card__footer">
-                                <h4 class="card__title">Custom form elements</h4>
-                                <p>Molecules</p>
-                            </div>
-                        </a>
-                        <a href="./pages/calendar/calendar.html" class="card__item">
-                            <div class="card__body">
-                                <div class="calendar calendar_wrapper_mini">
-                                    <div class="calendar__title calendar_title_mini">November 2023</div>
-                                    <div class="calendar__wrapper">
-                                        <div class="calendar__inner">
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Mon</span>
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Tue</span>
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Wed</span>
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Thu</span>
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Fri</span>
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Sat</span>
-                                            <span class="calendar__item calendar__item_day calendar_size_mini">Sun</span>
-                                            <span class="calendar__item calendar_size_mini"></span>
-                                            <span class="calendar__item calendar_size_mini"></span>
-                                            <span class="calendar__item calendar_size_mini">1</span>
-                                            <span class="calendar__item calendar_size_mini">2</span>
-                                            <span class="calendar__item calendar_size_mini">3</span>
-                                            <span class="calendar__item calendar_size_mini">4</span>
-                                            <span class="calendar__item calendar_size_mini">5</span>
-                                            <span class="calendar__item calendar_size_mini">6</span>
-                                            <span class="calendar__item calendar_size_mini">7</span>
-                                            <span class="calendar__item calendar_size_mini">8</span>
-                                            <span class="calendar__item calendar_size_mini">9</span>
-                                            <span class="calendar__item calendar_size_mini">10</span>
-                                            <span class="calendar__item calendar_size_mini">11</span>
-                                            <span class="calendar__item calendar_size_mini">12</span>
-                                            <span class="calendar__item calendar__item_active calendar_size_mini">13</span>
-                                            <span class="calendar__item calendar__item_between-active calendar_size_mini">14</span>
-                                            <span class="calendar__item calendar__item_between-active calendar_size_mini">15</span>
-                                            <span class="calendar__item calendar__item_between-active calendar_size_mini">16</span>
-                                            <span class="calendar__item calendar__item_between-active calendar_size_mini">17</span>
-                                            <span class="calendar__item calendar__item_active calendar_size_mini">18</span>
-                                            <span class="calendar__item calendar_size_mini">19</span>
-                                            <span class="calendar__item calendar_size_mini">20</span>
-                                            <span class="calendar__item calendar_size_mini">21</span>
-                                            <span class="calendar__item calendar_size_mini">22</span>
-                                            <span class="calendar__item calendar_size_mini">23</span>
-                                            <span class="calendar__item calendar_size_mini">24</span>
-                                            <span class="calendar__item calendar_size_mini">25</span>
-                                            <span class="calendar__item calendar_size_mini">26</span>
-                                            <span class="calendar__item calendar_size_mini">27</span>
-                                            <span class="calendar__item calendar_size_mini">28</span>
-                                            <span class="calendar__item calendar_size_mini">29</span>
-                                            <span class="calendar__item calendar_size_mini">30</span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="card__footer">
-                                <h4 class="card__title">Calendar</h4>
-                                <p>Molecule</p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <div class="container">
-                    <h3 class="title">Skeleton</h3>
-                    <div class="skeleton skeleton__wrapper">
-                        <div class="skeleton__header">
-                            <div class="skeleton__circle"></div>
-                            <div class="skeleton__title">
-                                <div class="skeleton__line first"></div>
-                                <div class="skeleton__line second"></div>
-                            </div>
-                        </div>
-                        <div class="skeleton__body">
-                            <div class="skeleton__line three"></div>
-                            <div class="skeleton__line four"></div>
-                        </div>
-                    </div>
-                </div>
-                <div class="container">
-                    <h3 class="title">Dropdown</h3>
-                    <div class="dropdown">
-                        <button class="button -primary">Dropdown</button>
-                        <ul class="dropdown__menu">
-                            <li><a href="#">Item 1</a></li>
-                            <li><a href="#">Item 2</a></li>
-                            <li><a href="#">Item 3</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="container">
-                    <h3 class="title">Custom form elements</h3>
-                    <div class="form__group">
-                        <label class="input__title">label</label>
-                        <div class="input__wrapper">
-                            <input type="text" class="input__input input__input-default" placeholder="Placeholder">
-                        </div>
-                    </div>
-                    <div class="form__group">
-                        <label class="input__title">success</label>
-                        <div class="input__wrapper">
-                            <input type="text" class="input__input input__input-succes" placeholder="Success">
-                            <div class="input__icon">
-                                <svg class="svg-sprite">
-                                    <use xlink:href="#success"></use>
-                                </svg>
-                              </div>
-                        </div>
-                    </div>
-                    <div class="form__group">
-                        <label class="input__title">Error</label>
-                        <div class="input__wrapper">
-                            <input type="text" class="input__input input__input-error" placeholder="Error">
-                                <div class="input__icon">
-                                    <svg class="svg-sprite" fill="red">
-                                        <use xlink:href="#error"></use>
-                                    </svg>
-                                </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="tabs__content tabs__content-4 bg-grey">
-                <div class="container">
-                   <div class="card__grid">
-                    <a href="./pages/modal/modal.html" class="card__item">  
-                        <div class="card__body">
-                           <div class="modal__window_preview">
-                               <p>Modal</p>
-                               <div class="modal__close">
-                                <svg class="svg-sprite" style="fill: var(--grey-3);">
-                                    <use xlink:href="#close"></use>
-                                </svg>
-                               </div>
-                               <div class="modal__body">
-                                   <label class="modal__label" for="email">Email</label>
-                                   <input class="modal__input" type="email" placeholder="Placeholder">
-                                   <button type="submit" class="button -primary modal__btn">
-                                       Submit
-                                   </button>
-                               </div>
-                           </div>
-                       </div>
-               
-                           <div class="card__footer">
-                               <h4 class="card__title">Modal</h4>
-                               <p>Organism</p>
-                           </div>
-                       </a>
-                       <a href="./pages/histogram/histogram.html" class="card__item">
-    
-                        <div class="card__body">
-                          <div class="histogram__wrapper">
-                              <div class="histogram">
-                                  <div class="histogram__header">
-                                      <h3 class="histogram__title">Total orders</h3>
-                                      <div href="#" class="histogram__link">View all</div>
-                                  </div>
-                                  <p class="histogram__total">50254</p>
-                                  <div class="histogram__bars">
-                                      <div class="histogram__bar" style="height: 30%"></div>
-                                      <div class="histogram__bar" style="height: 50%"></div>
-                                      <div class="histogram__bar" style="height: 70%"></div>
-                                      <div class="histogram__bar" style="height: 90%"></div>
-                                      <div class="histogram__bar" style="height: 30%"></div>
-                                      <div class="histogram__bar" style="height: 40%"></div>
-                                      <div class="histogram__bar" style="height: 50%"></div>
-                                      <div class="histogram__bar" style="height: 10%"></div>
-                                      <div class="histogram__bar" style="height: 90%"></div>
-                                      <div class="histogram__bar" style="height: 10%"></div>
-                                      <div class="histogram__bar" style="height: 50%"></div>
-                                      <div class="histogram__bar" style="height: 20%"></div>
-                                      <div class="histogram__bar" style="height: 90%"></div>
-                                      <div class="histogram__bar" style="height: 30%"></div>
-                                      <div class="histogram__bar" style="height: 40%"></div>
-                                      <div class="histogram__bar" style="height: 50%"></div>
-                                      <div class="histogram__bar" style="height: 10%"></div>
-                                      <div class="histogram__bar" style="height: 90%"></div>
-                                      <div class="histogram__bar" style="height: 10%"></div>
-                                      <div class="histogram__bar" style="height: 50%"></div>
-                                      <div class="histogram__bar" style="height: 20%"></div>
-                                      <div class="histogram__bar" style="height: 90%"></div>
-                                      <div class="histogram__bar" style="height: 30%"></div>
-                                      <div class="histogram__bar" style="height: 40%"></div>
-                                      <div class="histogram__bar" style="height: 50%"></div>
-                                      <div class="histogram__bar" style="height: 10%"></div>
-                                      <div class="histogram__bar" style="height: 90%"></div>
-                                  </div>
-                              </div>
+                  </a>
+                  <a href="./pages/avatar/avatar.html" class="card__item">
+                    <div class="card__body">
+                      <div class="avatar__component_preview">
+                        <div class="avatar">
+                          <div class="avatar__square">
+                            <img
+                              src="assets/images/avatar.jpg"
+                              class="avatar__image"
+                              alt="avatar"
+                            />
                           </div>
                         </div>
-                        <div class="card__footer">
-                          <h4 class="card__title">Histogram</h4>
-                          <p>Organism</p>
                       </div>
-                      </a>
-                   </div>
+                    </div>
+                    <div class="card__footer">
+                      <h4 class="card__title">Avatar</h4>
+                      <p>Atom</p>
+                    </div>
+                  </a>
                 </div>
-                <div class="container">
-                    <h3 class="title">Modal</h3>
-                    <a class="button -primary" href="#modal" id="modal-open">Open Modal</a>
-                    <div id="modal" class="modal">
-                        <div class="modal__window">
-                            <a href="#" id="modal-close" class="modal__close">
-                                <svg class="svg-sprite" style="fill: var(--grey-3);">
-                                    <use xlink:href="#close"></use>
-                                </svg>
-                            </a>
-                            <div class="modal__body">
-                                <p>Modal based window.</p>
-                                <label class="modal__label" for="name">Name</label>
-                                <input class="modal__input" type="text" placeholder="Placeholder">
-                                <label class="modal__label" for="email">Email</label>
-                                <input class="modal__input" type="email" placeholder="Placeholder">
-                                <button type="submit" class="button -primary">
-                                    Submit
-                                </button>
-                            </div>
+              </div>
+              <div class="container">
+                <h3 class="title">Buttons</h3>
+                <div class="grid-4-columns">
+                  <button type="button" class="button">Button</button>
+                  <button type="button" class="button" disabled>
+                    Button disabled
+                  </button>
+                  <button type="button" class="button -primary">Primary</button>
+                  <button type="button" class="button -primary" disabled>
+                    Primary disabled
+                  </button>
+                  <button type="button" class="button -secondary">
+                    Secondary
+                  </button>
+                  <button type="button" class="button -secondary" disabled>
+                    Secondary disabled
+                  </button>
+                  <button type="button" class="button -alternate">
+                    Alternate
+                  </button>
+                  <button type="button" class="button -alternate" disabled>
+                    Alternate disabled
+                  </button>
+                </div>
+              </div>
+              <div class="container">
+                <h3 class="title">Custom form elements</h3>
+                <div class="grid-3-columns">
+                  <div class="form">
+                    <label class="radio">
+                      <input
+                        type="radio"
+                        class="radio__input"
+                        name="radioGroup"
+                        value="1"
+                      />
+                      <div class="radio__state">
+                        <div class="radio__control">
+                          <div class="radio__checked"></div>
                         </div>
-                    </div>
+                        <div class="radio__title">Default</div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="form">
+                    <label class="radio">
+                      <input
+                        type="radio"
+                        class="radio__input"
+                        name="radioGroup"
+                        value="2"
+                        checked
+                      />
+                      <div class="radio__state">
+                        <div class="radio__control">
+                          <div class="radio__checked"></div>
+                        </div>
+                        <div class="radio__title">Selected</div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="form">
+                    <label class="radio">
+                      <input
+                        type="radio"
+                        class="radio__input"
+                        name="radioGroup"
+                        value="3"
+                        disabled
+                      />
+                      <div class="radio__state">
+                        <div
+                          class="radio__control radio__control-disabled"
+                        ></div>
+                        <div class="radio__title">Disabled</div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="form">
+                    <label class="checkbox">
+                      <input type="checkbox" class="checkbox__input" />
+                      <div class="checkbox__state">
+                        <div class="checkbox__control">
+                          <svg class="svg-sprite dark">
+                            <use xlink:href="#check"></use>
+                          </svg>
+                        </div>
+                        <div class="checkbox__title">Default</div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="form">
+                    <label class="checkbox">
+                      <input type="checkbox" class="checkbox__input" checked />
+                      <div class="checkbox__state">
+                        <div class="checkbox__control">
+                          <svg class="svg-sprite dark">
+                            <use xlink:href="#check"></use>
+                          </svg>
+                        </div>
+                        <div class="checkbox__title">Checked</div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="form">
+                    <label class="checkbox">
+                      <input type="checkbox" class="checkbox__input" disabled />
+                      <div class="checkbox__state">
+                        <div
+                          class="checkbox__control checkbox__control-disabled"
+                        ></div>
+                        <div class="checkbox__title">Disabled</div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="form">
+                    <label class="toggler">
+                      <input
+                        type="checkbox"
+                        class="toggler__input"
+                        name="toggler"
+                        value="1"
+                      />
+                      <div class="toggler__state">
+                        <div class="toggler__control">
+                          <div class="toggler__checked"></div>
+                        </div>
+                        <div class="toggler__title">Default</div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="form">
+                    <label class="toggler">
+                      <input
+                        type="checkbox"
+                        class="toggler__input"
+                        name="toggler"
+                        value="2"
+                        checked
+                      />
+                      <div class="toggler__state">
+                        <div class="toggler__control">
+                          <div class="toggler__checked"></div>
+                        </div>
+                        <div class="toggler__title">Checked</div>
+                      </div>
+                    </label>
+                  </div>
+                  <div class="form">
+                    <label class="toggler">
+                      <input
+                        type="checkbox"
+                        class="toggler__input"
+                        name="toggler"
+                        value="3"
+                        disabled
+                      />
+                      <div class="toggler__state">
+                        <div
+                          class="toggler__control toggler__control-disabled"
+                        ></div>
+                        <div class="toggler__title">Disabled</div>
+                      </div>
+                    </label>
+                  </div>
                 </div>
-                <div class="container">
-                    <h3 class="title">Accordion</h3>
-                    <div class="accordion">
-                        <details class="accordion__item">
-                            <summary class="accordion__summary">
-                                Accordion item 1
-                                <svg class="svg-sprite accordion__arrow" fill="none" style="stroke: var(--grey-3);">
-                                    <use xlink:href="#arrow-close"></use>
-                                </svg>
-                            </summary>
-                            <div class="accordion__content">
-                                <p class="accordion__text">
-                                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                                    Velit officia consequat duis enim velit mollit.
-                                    Exercitation veniam consequat sunt nostrud amet.
-                                </p>
-                            </div>
-                        </details>
-                        <details class="accordion__item">
-                            <summary class="accordion__summary">
-                                Accordion item 2
-                                <svg class="svg-sprite accordion__arrow" fill="none" style="stroke: var(--grey-3);">
-                                    <use xlink:href="#arrow-close"></use>
-                                </svg>
-                            </summary>
-                            <div class="accordion__content">
-                                <p class="accordion__text">
-                                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                                    Velit officia consequat duis enim velit mollit.
-                                    Exercitation veniam consequat sunt nostrud amet.
-                                </p>
-                            </div>
-                        </details>
-                        <details class="accordion__item">
-                            <summary class="accordion__summary">
-                                Accordion item 3
-                                <svg class="svg-sprite accordion__arrow" fill="none" style="stroke: var(--grey-3);">
-                                    <use xlink:href="#arrow-close"></use>
-                                </svg>
-                            </summary>
-                            <div class="accordion__content">
-                                <p class="accordion__text">
-                                    Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                                    Velit officia consequat duis enim velit mollit.
-                                    Exercitation veniam consequat sunt nostrud amet.
-                                </p>
-                            </div>
-                        </details>
-                    </div>
-                </div>
+              </div>
             </div>
-          
+            <div class="tabs__content tabs__content-3 bg-grey">
+              <div class="container">
+                <div class="card__grid">
+                  <a href="./pages/formgroup/formgroup.html" class="card__item">
+                    <div class="card__body">
+                      <div class="form-elements">
+                        <label class="toggler">
+                          <input
+                            type="checkbox"
+                            class="toggler__input"
+                            name="toggler"
+                            value="1"
+                          />
+                          <div class="toggler__state">
+                            <div class="toggler__control">
+                              <div class="toggler__checked"></div>
+                            </div>
+                            <div class="toggler__title">Default</div>
+                          </div>
+                        </label>
+                        <label class="toggler">
+                          <input
+                            type="checkbox"
+                            class="toggler__input"
+                            name="toggler"
+                            value="2"
+                            checked
+                          />
+                          <div class="toggler__state">
+                            <div class="toggler__control">
+                              <div class="toggler__checked"></div>
+                            </div>
+                            <div class="toggler__title">Checked</div>
+                          </div>
+                        </label>
+                        <label class="toggler">
+                          <input
+                            type="checkbox"
+                            class="toggler__input"
+                            name="toggler"
+                            value="3"
+                            disabled
+                          />
+                          <div class="toggler__state">
+                            <div
+                              class="toggler__control toggler__control-disabled"
+                            ></div>
+                            <div class="toggler__title">Disabled</div>
+                          </div>
+                        </label>
+                      </div>
+                    </div>
+                    <div class="card__footer">
+                      <h4 class="card__title">Custom form elements</h4>
+                      <p>Molecules</p>
+                    </div>
+                  </a>
+                  <a href="./pages/calendar/calendar.html" class="card__item">
+                    <div class="card__body">
+                      <div class="calendar calendar_wrapper_mini">
+                        <div class="calendar__title calendar_title_mini">
+                          November 2023
+                        </div>
+                        <div class="calendar__wrapper">
+                          <div class="calendar__inner">
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Mon</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Tue</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Wed</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Thu</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Fri</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Sat</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_day calendar_size_mini"
+                              >Sun</span
+                            >
+                            <span
+                              class="calendar__item calendar_size_mini"
+                            ></span>
+                            <span
+                              class="calendar__item calendar_size_mini"
+                            ></span>
+                            <span class="calendar__item calendar_size_mini"
+                              >1</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >2</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >3</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >4</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >5</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >6</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >7</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >8</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >9</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >10</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >11</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >12</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_active calendar_size_mini"
+                              >13</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_between-active calendar_size_mini"
+                              >14</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_between-active calendar_size_mini"
+                              >15</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_between-active calendar_size_mini"
+                              >16</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_between-active calendar_size_mini"
+                              >17</span
+                            >
+                            <span
+                              class="calendar__item calendar__item_active calendar_size_mini"
+                              >18</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >19</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >20</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >21</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >22</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >23</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >24</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >25</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >26</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >27</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >28</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >29</span
+                            >
+                            <span class="calendar__item calendar_size_mini"
+                              >30</span
+                            >
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card__footer">
+                      <h4 class="card__title">Calendar</h4>
+                      <p>Molecule</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="container">
+                <h3 class="title">Skeleton</h3>
+                <div class="skeleton skeleton__wrapper">
+                  <div class="skeleton__header">
+                    <div class="skeleton__circle"></div>
+                    <div class="skeleton__title">
+                      <div class="skeleton__line first"></div>
+                      <div class="skeleton__line second"></div>
+                    </div>
+                  </div>
+                  <div class="skeleton__body">
+                    <div class="skeleton__line three"></div>
+                    <div class="skeleton__line four"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+                <h3 class="title">Dropdown</h3>
+                <div class="dropdown">
+                  <button class="button -primary">Dropdown</button>
+                  <ul class="dropdown__menu">
+                    <li><a href="#">Item 1</a></li>
+                    <li><a href="#">Item 2</a></li>
+                    <li><a href="#">Item 3</a></li>
+                  </ul>
+                </div>
+              </div>
+              <div class="container">
+                <h3 class="title">Custom form elements</h3>
+                <div class="form__group">
+                  <label class="input__title">label</label>
+                  <div class="input__wrapper">
+                    <input
+                      type="text"
+                      class="input__input input__input-default"
+                      placeholder="Placeholder"
+                    />
+                  </div>
+                </div>
+                <div class="form__group">
+                  <label class="input__title">success</label>
+                  <div class="input__wrapper">
+                    <input
+                      type="text"
+                      class="input__input input__input-succes"
+                      placeholder="Success"
+                    />
+                    <div class="input__icon">
+                      <svg class="svg-sprite">
+                        <use xlink:href="#success"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+                <div class="form__group">
+                  <label class="input__title">Error</label>
+                  <div class="input__wrapper">
+                    <input
+                      type="text"
+                      class="input__input input__input-error"
+                      placeholder="Error"
+                    />
+                    <div class="input__icon">
+                      <svg class="svg-sprite" fill="red">
+                        <use xlink:href="#error"></use>
+                      </svg>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="tabs__content tabs__content-4 bg-grey">
+              <div class="container">
+                <div class="card__grid">
+                  <a href="./pages/modal/modal.html" class="card__item">
+                    <div class="card__body">
+                      <div class="modal__window_preview">
+                        <p>Modal</p>
+                        <div class="modal__close">
+                          <svg class="svg-sprite" style="fill: var(--grey-3)">
+                            <use xlink:href="#close"></use>
+                          </svg>
+                        </div>
+                        <div class="modal__body">
+                          <label class="modal__label" for="email">Email</label>
+                          <input
+                            class="modal__input"
+                            type="email"
+                            placeholder="Placeholder"
+                          />
+                          <button
+                            type="submit"
+                            class="button -primary modal__btn"
+                          >
+                            Submit
+                          </button>
+                        </div>
+                      </div>
+                    </div>
 
-        </section>
-    </div>
-        </section>
-        <footer class="footer">
-        <div class="footer__inner">
-            <h2 class="footer__title">About</h2>
-            <p class="footer__text">This project is a collection of professionally designed, pre-built, fully responsive HTML snippets you can drop into your projects. 
-                Get started by checking out our free preview components, or browsing the PNG previews in the categories you're most curious about.</p>
+                    <div class="card__footer">
+                      <h4 class="card__title">Modal</h4>
+                      <p>Organism</p>
+                    </div>
+                  </a>
+                  <a href="./pages/histogram/histogram.html" class="card__item">
+                    <div class="card__body">
+                      <div class="histogram__wrapper">
+                        <div class="histogram">
+                          <div class="histogram__header">
+                            <h3 class="histogram__title">Total orders</h3>
+                            <div href="#" class="histogram__link">View all</div>
+                          </div>
+                          <p class="histogram__total">50254</p>
+                          <div class="histogram__bars">
+                            <div
+                              class="histogram__bar"
+                              style="height: 30%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 50%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 70%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 90%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 30%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 40%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 50%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 10%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 90%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 10%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 50%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 20%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 90%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 30%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 40%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 50%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 10%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 90%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 10%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 50%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 20%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 90%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 30%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 40%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 50%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 10%"
+                            ></div>
+                            <div
+                              class="histogram__bar"
+                              style="height: 90%"
+                            ></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="card__footer">
+                      <h4 class="card__title">Histogram</h4>
+                      <p>Organism</p>
+                    </div>
+                  </a>
+                </div>
+              </div>
+              <div class="container">
+                <h3 class="title">Modal</h3>
+                <a class="button -primary" href="#modal" id="modal-open"
+                  >Open Modal</a
+                >
+                <div id="modal" class="modal">
+                  <div class="modal__window">
+                    <a href="#" id="modal-close" class="modal__close">
+                      <svg class="svg-sprite" style="fill: var(--grey-3)">
+                        <use xlink:href="#close"></use>
+                      </svg>
+                    </a>
+                    <div class="modal__body">
+                      <p>Modal based window.</p>
+                      <label class="modal__label" for="name">Name</label>
+                      <input
+                        class="modal__input"
+                        type="text"
+                        placeholder="Placeholder"
+                      />
+                      <label class="modal__label" for="email">Email</label>
+                      <input
+                        class="modal__input"
+                        type="email"
+                        placeholder="Placeholder"
+                      />
+                      <button type="submit" class="button -primary">
+                        Submit
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="container">
+                <h3 class="title">Accordion</h3>
+                <div class="accordion">
+                  <details class="accordion__item">
+                    <summary class="accordion__summary">
+                      Accordion item 1
+                      <svg
+                        class="svg-sprite accordion__arrow"
+                        fill="none"
+                        style="stroke: var(--grey-3)"
+                      >
+                        <use xlink:href="#arrow-close"></use>
+                      </svg>
+                    </summary>
+                    <div class="accordion__content">
+                      <p class="accordion__text">
+                        Amet minim mollit non deserunt ullamco est sit aliqua
+                        dolor do amet sint. Velit officia consequat duis enim
+                        velit mollit. Exercitation veniam consequat sunt nostrud
+                        amet.
+                      </p>
+                    </div>
+                  </details>
+                  <details class="accordion__item">
+                    <summary class="accordion__summary">
+                      Accordion item 2
+                      <svg
+                        class="svg-sprite accordion__arrow"
+                        fill="none"
+                        style="stroke: var(--grey-3)"
+                      >
+                        <use xlink:href="#arrow-close"></use>
+                      </svg>
+                    </summary>
+                    <div class="accordion__content">
+                      <p class="accordion__text">
+                        Amet minim mollit non deserunt ullamco est sit aliqua
+                        dolor do amet sint. Velit officia consequat duis enim
+                        velit mollit. Exercitation veniam consequat sunt nostrud
+                        amet.
+                      </p>
+                    </div>
+                  </details>
+                  <details class="accordion__item">
+                    <summary class="accordion__summary">
+                      Accordion item 3
+                      <svg
+                        class="svg-sprite accordion__arrow"
+                        fill="none"
+                        style="stroke: var(--grey-3)"
+                      >
+                        <use xlink:href="#arrow-close"></use>
+                      </svg>
+                    </summary>
+                    <div class="accordion__content">
+                      <p class="accordion__text">
+                        Amet minim mollit non deserunt ullamco est sit aliqua
+                        dolor do amet sint. Velit officia consequat duis enim
+                        velit mollit. Exercitation veniam consequat sunt nostrud
+                        amet.
+                      </p>
+                    </div>
+                  </details>
+                </div>
+              </div>
+            </div>
+          </section>
         </div>
-        </footer>
+      </section>
+      <footer class="footer">
+        <div class="footer__inner">
+          <h2 class="footer__title">About</h2>
+          <p class="footer__text">
+            This project is a collection of professionally designed, pre-built,
+            fully responsive HTML snippets you can drop into your projects. Get
+            started by checking out our free preview components, or browsing the
+            PNG previews in the categories you're most curious about.
+          </p>
+        </div>
+      </footer>
     </main>
-<script src="./pages/modal/index.js"></script>
-<script src="main.js"></script>
-</body>
+    <script src="./pages/modal/index.js"></script>
+    <script src="main.js"></script>
+  </body>
 </html>
